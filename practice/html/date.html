@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>date test</title>
+
+    <link type="text/css" rel="stylesheet" href="../css/all.css">
+    <script language="javascript" type="text/javascript" src="../js/jquery-2.1.1/jquery.min.js"></script>
+</head>
+<body>
+
+<h3>测试position属性：static absolute relative fixed （固定定位）</h3>
+
+
+
+<h3>css()方法设置元素样式</h3>
+<div id="content">我穿了一件红色外衣</div>
+
+<ul id="list">
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+</ul>
+<br />
+
+<div id="time"></div>
+<div>
+    <p>这里是一个段落！！！！！</p>
+</div>
+
+<script type="text/javascript">
+    $("#content").css({"background-color":"red" , "color":"white"});
+</script>
+
+
+<script language="javascript" type="text/javascript">
+
+    window.onload = function(){
+        showTime();
+    }
+    function checkTime(i){  //补位处理
+        if(i<10){
+            i="0"+i;
+
+        }
+        return i;
+
+
+    }
+    function showTime(){
+        var now=new Date();
+        var year= now.getFullYear()  ;
+        var month=  now.getMonth()+1  ;
+        var day=  now.getDate()  ;
+        var h=  now.getHours()  ;
+        var m=  now.getMinutes()  ;
+        var s=  now.getSeconds() ;
+        m=checkTime(m)
+        s=checkTime(s)
+
+        var weekday=new Array(7)
+        weekday[0]="星期日"
+        weekday[1]="星期一"
+        weekday[2]="星期二"
+        weekday[3]="星期三"
+        weekday[4]="星期四"
+        weekday[5]="星期五"
+        weekday[6]="星期六"
+        var d=now.getDay();
+        document.getElementById("time").innerHTML=""+year+"年"+month+"月"+day+"日 "+  weekday[d] +h+":"+m+":"+s;
+        t=setTimeout('showTime()',500)
+    }
+
+
+
+    $("ul *").html("我们是列表中的li");//用jquery选择器选中ul下所有的元素。练习jquery
+
+</script>
+
+
+</body>
+</html>

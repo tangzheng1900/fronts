@@ -4,5 +4,20 @@
     font: "times new roman";
     width: 120px;
     height: 60px;
+
+
     border: 1px solid #8a2be2;
+}
+
+#time{
+    position: static;
+    margin: 10px;
+    left: 10px;
+    top: 10px;
+    width: 300px;
+    height: 60px;
+    font: "Times New Roman";
+    color: #8a2be2;
+    background-color: #ffdead;
+
 }
