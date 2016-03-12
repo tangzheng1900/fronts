@@ -40,6 +40,11 @@
     <input type="button" value="显示内容" >
     <input type="button" value="取消设置" >
 </form>
+
+<input type="button" value="调用ajax" onclick="change()">
+<input type="button" id="btnShow" value="ajax mooc">
+<ul>从慕课网调到的数据！</ul>
+
 <script type="text/javascript" language="javascript">
 
     var obj=document.getElementById("txt");
@@ -146,11 +151,57 @@
     var book2 = JSON.parse(jsonText);//不适用jquery
     alert("book2:"+book2);
 
-
     alert(book1);
     alert(book1.title);
-</script>
+    ///////
+    var jsonText = JSON.stringify(book, function(key, value){ //加过滤函数
+        switch(key){
+            case "authors":
+                return value.join(",")
 
+            case "year":
+                return 5000;
+
+            case "edition":
+                return undefined;
+
+            default:
+                return value;
+        }
+    } );
+
+
+    function change(){
+    var xhr = new XMLHttpRequest();
+    var change=xhr.onreadystatechange = function(){
+        if (xhr.readyState == 4){
+            if ((xhr.status >= 200 && xhr.status < 300) || xhr.status == 304){
+                alert(xhr.responseText);
+            } else {
+                alert("Request was unsuccessful: " + xhr.status);
+            }
+        }
+    };
+    xhr.open("get", "http://www.imooc.com", true);
+    xhr.send("java");
+    }
+
+
+
+</script>
+<script type="text/javascript">
+    $(function () {
+        $("#btnShow").bind("click", function () {
+            var $this = $(this);
+            $.get("http://www.imooc.com/data/info_f.php", function (data) {
+                $this.attr("disabled", "true");
+                alert(data);
+                $("ul").append("<li>我的名字叫：" + data.name + "</li>");
+                $("ul").append("<li>男朋友对我说：" + data.say + "</li>");
+            }, "json");
+        })
+    });
+</script>
 
 <div id="1">
 
