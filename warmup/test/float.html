@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>test float</title>
+
+    <style type="text/css">
+
+        #a{
+            width: 200px;
+            height: 200px;
+            float: right;
+            background: orange;
+        }
+
+        #b{
+            width: 200px;
+            height: 200px;
+            float: left;
+            background: red;
+
+
+        }
+        #cc{
+            width: 400px;
+            height: 100px;
+            background: blue;
+        }
+        #c{
+            width: 500px;
+            height: 200px;
+            background: purple;
+            z-index: 2;
+        }
+        #explain{
+
+            width: 500px;
+            height: 200px;
+            background: #add8e6;
+            position: relative;
+            top: 50px;
+
+
+        }
+    </style>
+</head>
+<body>
+
+<p><h1>测试float</h1></p>
+<div id="a">div 1</div>
+<div id="cc">正常的文档流div</div>
+
+<div id="b">div 2</div>
+<p>正常的文档流p</p>
+<p>正常文档流p2<span><b>span元素</b></span></p>
+
+<div id="c">div 3</div>
+
+<div id="explain">
+
+    <article>
+        解释：float 的块元素会脱离文档流，会把其他块元素的内容挤出去，其高度是根据与其相同标签的块元素
+        的正常流中的高度决定的
+    </article>
+
+
+</div>
+
+
+
+
+
+</body>
+</html>
