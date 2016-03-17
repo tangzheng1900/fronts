@@ -22,6 +22,24 @@
     <link type="text/css" rel="stylesheet" href="../css/all.css">
     <script type="text/javascript" language="javascript" src="../js/data.js"></script>
 
+
+    <style type="text/css">
+
+
+     #ss{
+            position:absolute;
+            width:80px;
+            height:80px;
+            border: solid 1px #ccc;
+            margin: 0px 8px;
+            background-color: Red;
+            color:White;
+            vertical-align:middle
+        }
+
+    </style>
+
+
 </head>
 <body>
 <h1>使用bootstrap的模板</h1>
@@ -49,10 +67,33 @@
     //$("per").val(Date.getDate());
     var per1=document.getElementById("per");
     per1.innerHTML="hhhhhhhhh";
-    alert(new(Date.getDate()));
+    //alert(new(Date.getDate()));
 
 
 </script>
+
+
+<h3>制作移动位置的动画</h3>
+<span id="ss"></span>
+<div id="tip"></div>
+
+<script type="text/javascript">
+    $(function () {
+        $("#ss").animate({
+            left: "+=100px"
+        }, 3000, function () {
+            $("#ss").animate({
+                height: '+=100px',
+                width: '+=100px'
+            }, 3000, function () {
+                $("#tip").html("执行完成!");
+            });
+        });
+    });
+</script>
+
+
+
 
 
 
