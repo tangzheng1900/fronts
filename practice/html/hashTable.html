@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>用js实现hashTable</title>
+</head>
+<body>
+
+
+<h2>用js实现hashTable</h2>
+
+<div></div>
+
+
+<script type="text/javascript">
+
+    function HashTable() {
+        this.value = [];
+    }
+
+    HashTable.prototype.add = function(val) {
+        this.value.push(val);
+    }
+    HashTable.prototype.remove = function(index) {
+        this.value.splice(index, 1);
+    }
+    HashTable.prototype.contains = function(val) {
+        var aValue = this.value;
+        for (var i = 0; i < aValue.length; i++) {
+            if (val == aValue[i]) {
+                return true;
+
+            }
+        }
+        return false;
+    }
+
+    HashTable.prototype.length = function() {
+        return this.value.length;
+    }
+
+    hash = new HashTable();
+    hash.add(1);
+    hash.add(2);
+    console.log(hash.length());
+    console.log(hash.contains(1));
+    hash.remove(1);
+    console.log(hash.length());
+    console.log(hash.contains(2));
+
+
+    
+    ///////深度克隆
+
+    var cloneObj = function(obj){
+        var str, newobj = obj.constructor === Array ? [] : {};
+        if(typeof obj !== 'object'){
+            return;
+        } else if(window.JSON){
+            str = JSON.stringify(obj), //系列化对象
+                    newobj = JSON.parse(str); //还原
+        } else {
+            for(var i in obj){
+                newobj[i] = typeof obj[i] === 'object' ?
+                        cloneObj(obj[i]) : obj[i];
+            }
+        }
+        return newobj;
+    };
+    //测试
+    var obj = {a: 0, b: 1, c: 2};
+    var arr = [0, 1, 2];
+    //执行深度克隆
+    var newobj = cloneObj(obj);
+    var newarr = cloneObj(arr);
+    //对克隆后的新对象进行成员删除
+    delete newobj.a;
+    newarr.splice(0,1);
+    console.log(obj);
+    console.log(arr);
+    console.log(newobj);
+    console.log(newarr);
+
+    var it = 2;
+    //var newit = cloneObj(newit);
+    //console.log(newit);
+
+
+</script>
+
+</body>
+</html>
