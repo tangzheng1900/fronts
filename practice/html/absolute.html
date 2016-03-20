@@ -26,7 +26,7 @@
 <body>
 
 
-<div class="p">这个是绝对定位的父元素
+<div class="p" id="par">这个是绝对定位的父元素
 
     <div class="ch">
         这个是决定定位的子元素(absolute:生成绝对定位的元素，相对于 static 定位以外的第一个父元素进行定位。)
@@ -38,6 +38,11 @@
 
     window.onload=(function(){
         alert("直接使用window onload 相应页面的加载！");
+        var pp=document.getElementById("par");
+        var sp=document.createElement("span");
+        pp.appendChild(sp);
+
+        sp.innerHTML="这里衍生出一个执行上下文的问题！！";
     });
 
     //通用的时间监听函数    类似于jquery的$.ready();
@@ -113,9 +118,12 @@
     };
 
     var fn=function(){
-        alert("使用自己的时间监听！");
+        alert("使用自己的事件监听！");
     };
     myEvent.readyEvent(fn);
+    alert(myEvent.getTarget(document.getElementsByClassName("p"))+"的window 事件");
+
+
 
 
 </script>
