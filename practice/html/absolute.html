@@ -29,7 +29,7 @@
 <div class="p">这个是绝对定位的父元素
 
     <div class="ch">
-        这个是决定定位的子元素
+        这个是决定定位的子元素(absolute:生成绝对定位的元素，相对于 static 定位以外的第一个父元素进行定位。)
     </div>
 </div>
 
@@ -50,13 +50,66 @@
             if (typeof window.onload !== 'function') {
 
                 window.onload = fn;
-            } else {
+            }
+            else {
                 window.onload = function () {
                     oldonload();
                     fn();
                 }
-            };
-        }
+            }
+        },
+
+       // 兼容：视能力分别使用dom0||dom2||IE方式 来绑定事件
+       // 参数： 操作的元素,事件名称 ,事件处理程序
+       addEvent:function(element,type,handler){
+           if(element.addEventListener){
+
+               element.addEventListener(type,handler,false);
+           }
+           else if(element.attachEvent){
+               element.attachEvent('on'+type,function(){
+                   handler.call(element);
+               });
+           }
+           else{
+               element['on'+type]=handler;
+           }
+
+       },
+
+       // 移除事件
+       removeEvent : function(element, type, handler) {
+           if (element.removeEventListener) {
+               element.removeEventListener(type, handler, false);
+           } else if (element.datachEvent) {
+               element.detachEvent('on' + type, handler);
+           } else {
+               element['on' + type] = null;
+           }
+       },
+       // 阻止事件 (主要是事件冒泡，因为IE不支持事件捕获)
+       stopPropagation : function(ev) {
+           if (ev.stopPropagation) {
+               ev.stopPropagation();
+           } else {
+               ev.cancelBubble = true;
+           }
+       },
+       // 取消事件的默认行为
+       preventDefault : function(event) {
+           if (event.preventDefault) {
+               event.preventDefault();
+           } else {
+               event.returnValue = false;
+           }
+       },
+
+       //获取事件目标
+       getTarget : function(event){
+
+       return event.target||event.srcElement;
+       }
+
     };
 
     var fn=function(){
