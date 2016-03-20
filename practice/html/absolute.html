@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Positon</title>
+
+    <style type="text/css">
+        .p{
+            position: absolute;
+            left: 60px;
+            top: 60px;
+            width: 300px;
+            height: 300px;
+            background: #87ceeb;
+        }
+        .ch{
+            position: absolute;
+            left: 60px;
+            top: 60px;
+            width: 100px;
+            height: 100px;
+            background: orange;
+        }
+    </style>
+</head>
+<body>
+
+
+<div class="p">这个是绝对定位的父元素
+
+    <div class="ch">
+        这个是决定定位的子元素
+    </div>
+</div>
+
+
+<script type="text/javascript">
+
+    window.onload=(function(){
+        alert("直接使用window onload 相应页面的加载！");
+    });
+
+    //通用的时间监听函数    类似于jquery的$.ready();
+
+   var myEvent = {
+        readyEvent:function (fn) {
+            //alert("使用自己的事件监听！");
+            var oldonload = window.onload;
+
+            if (typeof window.onload !== 'function') {
+
+                window.onload = fn;
+            } else {
+                window.onload = function () {
+                    oldonload();
+                    fn();
+                }
+            };
+        }
+    };
+
+    var fn=function(){
+        alert("使用自己的时间监听！");
+    };
+    myEvent.readyEvent(fn);
+
+
+</script>
+
+
+
+</body>
+</html>
