@@ -10,16 +10,57 @@
 <body>
 <div class="container">
 
-        <div style="height: 300px"></div>
-<div style="position:relative;left: 30px">
-<button data-balloon="Whats up!" data-balloon-pos="up">Hover me!</button>
-<button data-balloon="Whats up!" data-balloon-pos="left">Hover me!</button>
-<button data-balloon="up!" data-balloon-pos="right">Hover me!</button>
-<button data-balloon-length="xlarge" data-balloon="Whats up!" data-balloon-pos="down">Hover me!</button>
+    <div style="height: 300px"></div>
+    <div style="position:relative;left: 30px">
+        <button data-balloon="Whats up!" data-balloon-pos="up">Hover me!</button>
+        <button data-balloon="Whats up!" data-balloon-pos="left">Hover me!</button>
+        <button data-balloon="up!" data-balloon-pos="right">Hover me!</button>
+        <button data-balloon-length="xlarge" data-balloon="Whats up!" data-balloon-pos="down">Hover me!</button>
+    </div>
+
 </div>
 
-
+<div>
+    <ul>
+    </ul>
 </div>
+
+<script type="text/javascript">
+
+    //第一步把之前的数据写成一个数组的形式,定义变量为 infos
+    var arr = [
+        ['小A', '女', 21, '大一'],
+        ['小B', '男', 23, '大三'],
+        ['小C', '男', 24, '大四'],
+        ['小D', '女', 21, '大一'],
+        ['小E', '女', 22, '大四'],
+        ['小F', '男', 21, '大一'],
+        ['小G', '女', 22, '大二'],
+        ['小H', '女', 20, '大三'],
+        ['小I', '女', 20, '大一'],
+        ['小J', '男', 20, '大三']
+    ];
+
+    //第一次筛选，找出都是大一的信息
+    var ans = [];
+    for (var i = 0; i < arr.length; i++) {
+        if (arr[i][3] == "大一") {
+            ans.push(arr[i])
+        }
+    }
+
+
+    //第二次筛选，找出都是女生的信息
+    var list=document.getElementsByTagName("ul");
+    for (i = 0; i < ans.length; i++) {
+        if (ans[i][1] == "女") {
+            document.write(ans[i][0]);
+        }
+    }
+
+
+</script>
+
 
 </body>
 </html>
