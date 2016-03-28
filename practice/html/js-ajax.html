@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>js-ajax</title>
+</head>
+<body>
+<div>
+
+    <h2>使用原生js写ajax</h2>
+
+</div>
+
+<script type="text/javascript">
+
+    var xmlHttp;
+    function createxmlHttpRequest() {
+        if (window.ActiveXObject) {
+            xmlHttp = new ActiveXObject("Microsoft.XMLHTTP");
+        } else if (window.XMLHttpRequest) {
+            xmlHttp = new XMLHttpRequest();
+        }
+
+    }
+
+    function doGet(url) {
+// 注意在传参数值的时候最好使用encodeURI处理一下，以防出现乱码
+        createxmlHttpRequest();
+        xmlHttp.open("GET", url);
+        xmlHttp.send(null);
+        xmlHttp.onreadystatechange = function () {
+            if ((xmlHttp.readyState == 4) && (xmlHttp.status == 200)) {
+                alert('success');
+            } else {
+                alert('fail');
+            }
+        }
+    }
+
+    function doPost(url, data) {
+// 注意在传参数值的时候最好使用encodeURI处理一下，以防出现乱码
+        createxmlHttpRequest();
+        xmlHttp.open("POST", url);
+        xmlHttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+        xmlHttp.send(data);
+        xmlHttp.onreadystatechange = function () {
+            if ((xmlHttp.readyState == 4) && (xmlHttp.status == 200)) {
+                alert('success');
+            } else {
+                alert('fail');
+            }
+        }
+    }
+
+    ///////////////////////////////////////////
+    var jsajax=
+    {
+
+        doget : function (url) {
+            var xhr = new XMLHttpRequest();
+            xhr.open("GET", url);
+            xhr.send(null);
+            xhr.onreadystatechange = function () {
+                if ((xhr.readyState == 4) && (xhr.status == 200)) {
+
+                    alert("success");
+                    //dosomthing
+                }
+                else {
+
+                    alert("fail");
+                    //dosomething
+                }
+
+            }
+        },
+
+
+        dopost : function (url, data) {
+
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", url);
+            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            xhr.send(data);
+            xhr.onreadystatechange = function () {
+                if ((xhr.readyState == 4) && (xhr.status == 200)) {
+
+                    alert("success");
+                    //dosomthing
+                }
+                else {
+
+                    alert("fail");
+                    //dosomething
+                }
+
+            }
+
+        }
+
+    }
+
+    var url="http://www.imooc.com"
+    jsajax.doget(url);
+
+
+</script>
+
+
+</body>
+</html>

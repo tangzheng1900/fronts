@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>测试js的某些函数</title>
+</head>
+<body>
+
+<h2>测试js函数，执行环境</h2>
+
+
+<script type="text/javascript">
+
+    var a=1;
+    var b=function(){
+
+        alert(1);
+    }
+
+    var c={"b":1 };
+    c.a=2;
+//document.write("直接执行b()");
+var b=new b();
+
+    //////一些js技巧，原理
+
+   //alert(spacify('hello world')); // => 'h e l l o  w o r l d'
+
+   /* function spacify(str) {
+        return str.split('').join(' ');
+    }*/
+
+    String.prototype.spacify = function(){
+        return this.split('').join(' ');
+    };
+
+
+
+</script>
+
+</body>
+</html>
