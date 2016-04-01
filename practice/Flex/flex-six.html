@@ -22,8 +22,8 @@
         .flex-container{
             display: flex;
             flex-flow:row-reverse wrap;
-            justify-content:center;
-            background: #adff2f;
+            justify-content:space-around;
+            background: #8affb1;
         }
 
         .flex-item {
@@ -43,6 +43,34 @@
             text-align: center;
         }
 
+        .container2{
+
+            margin-top: 10px;
+            background: #9370db;
+            display: flex;
+            flex-flow:row wrap;
+            justify-content:center;
+            align-items:center;
+
+        }
+
+        .flex-item2 {
+            background: tomato;
+            padding: 5px;
+            width: 20%;
+            height: 50px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            margin-left: 5px;
+            border: 3px solid blue;
+
+            line-height: 150px;
+            color: white;
+            font-weight: bold;
+            font-size: 4em;
+            text-align: center;
+            align-self:center;
+        }
 
     </style>
 </head>
@@ -58,6 +86,15 @@
     <li class="flex-item">6</li>
 </ul>
 
+
+<div class="container2">
+
+    <li class="flex-item">1</li>
+    <li class="flex-item">2</li>
+    <li class="flex-item2">3</li>
+    <li class="flex-item2">4</li>
+
+</div>
 
 </body>
 </html>
