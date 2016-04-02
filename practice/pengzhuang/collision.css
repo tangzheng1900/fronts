@@ -1,0 +1,36 @@
+#stage{
+    display:block;
+    float:left;
+    width:400px;
+    height:300px;
+    box-shadow:
+        -2px -2px 4px rgba(0, 0, 0, 0.3),
+        2px 2px 4px rgba(0, 0, 0, 0.6);
+}
+#hitck{
+    display:block;
+    float:left;
+    width:400px;
+    height:300px;
+    box-shadow:
+        -2px -2px 4px rgba(0, 0, 0, 0.3),
+        2px 2px 4px rgba(0, 0, 0, 0.6);
+}
+#plane{
+    display:block;
+    float:left;
+    width:48px;
+    height:48px;
+    box-shadow:
+        -2px -2px 4px rgba(0, 0, 0, 0.3),
+        2px 2px 4px rgba(0, 0, 0, 0.6);
+}
+#ammo{
+    display:block;
+    float:left;
+    width:12px;
+    height:12px;
+    box-shadow:
+        -2px -2px 4px rgba(0, 0, 0, 0.3),
+        2px 2px 4px rgba(0, 0, 0, 0.6);
+}
