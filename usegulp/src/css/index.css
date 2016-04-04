@@ -1,0 +1,29 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+.container {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  background: plum;
+  font-size: inherit;
+}
+.left {
+  width: 200px;
+  height: 100px;
+  background: #bf6a40;
+  margin: 0 auto;
+}
+.box {
+  margin: 0 auto;
+  width: 200px;
+  height: 200px;
+  background: orchid;
+}
+.article {
+  width: 260px;
+  margin: 0 auto;
+  font-weight: bold;
+  background: antiquewhite;
+}
