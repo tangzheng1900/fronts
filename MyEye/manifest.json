@@ -1,0 +1,39 @@
+{
+  "name": "Conch (上帝之眼)",
+  "version": "1.1.2",
+   "manifest_version": 2,
+  "description": "清除页面无用的东西，划词翻译功能！",
+  "icons": {
+    "128": "./images/icon_128.png",
+    "48": "./images/icon_48.png",
+    "32": "./images/icon_32.png"
+  },
+   "browser_action": {
+	"default_icon": "./images/icon_48.png",
+	"default_popup": "popup.html",
+	"default_title": "上帝之眼"
+    },
+  "content_scripts": [
+    {
+      "matches": [
+        "http://weibo.com/*",
+        "https://weibo.com/*",
+        "http://*.weibo.com/*",
+        "https://*.weibo.com/*"
+      ],
+      "js": [
+        "js/jquery.js",
+        "js/clean.js"
+      ],
+      "css": [
+        "css/style.css"
+      ]
+    }
+  ],
+  "permissions": [
+	"http://*.shanbay.com/*"
+    ]
+}
+
+
+
