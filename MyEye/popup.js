@@ -74,7 +74,7 @@ function checkLoginStatus() {
         if (request.readyState === 4) {
             // user have logged in
             if (request.getResponseHeader('Content-Type') == 'application/json') {
-                var response = JSON.parse(request.responseText);
+                var response = JSON.parse(request.responseText);//确保不执行恶意脚本
                 var nick_name = response.nickname;
                 loggedIn(nick_name);
             }
@@ -289,6 +289,7 @@ function playSound() {
     document.getElementById('input').focus();
 }
 
+////////程序执行入口，监听事件
 document.addEventListener('DOMContentLoaded', function () {
     checkLoginStatus();
     document.querySelector('button').addEventListener('click', click);
