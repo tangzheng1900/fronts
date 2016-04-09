@@ -1,0 +1,31 @@
+{
+  "name": "Apple(掌上明珠)",
+  "version": "1.1.2",
+  "manifest_version": 2,
+  "description": "测试练习使用的插件！",
+  "icons": {
+    "128": "./images/apple_128.png",
+    "48": "./images/apple_64.png",
+    "32": "./images/apple_48.png"
+  },
+
+  "browser_action": {
+    "default_icon": "./images/apple_48.png",
+    "default_popup": "popup.html",
+    "default_title": "上帝之眼"
+  },
+  "permissions": [
+    "http://*.shanbay.com/*",
+    "notifications"
+  ],
+  "options_page": "options.html",
+  "background": {
+    "scripts": [
+      "background.js"
+    ]
+  },
+  "web_accessible_resources": [
+    "./images/apple_48.png"
+  ]
+}
+
