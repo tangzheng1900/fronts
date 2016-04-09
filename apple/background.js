@@ -10,7 +10,7 @@
  7	  permission in the manifest file (or calling
  8	  "Notification.requestPermission" beforehand).
  9	*/
-function show() {
+/*function show() {
     var time = /(..)(:..)/.exec(new Date());     // The prettyprinted time.
     var hour = time[1] % 12 || 12;               // The prettyprinted hour.
     var period = time[1] < 12 ? 'a.m.' : 'p.m.'; // The period of the day.
@@ -47,4 +47,16 @@ if (window.Notification) {
             interval = 0;
         }
     }, 60000);
-}
+}*/
+
+
+chrome.browserAction.onClicked.addListener(function (tab) {
+    // No tabs or host permissions needed!
+    console.log('Turning ' + tab.url + ' red!');
+    /*chrome.tabs.executeScript({
+        code: 'document.body.style.backgroundColor="red"'
+    });*/
+    chrome.tabs.executeScript(null,{file:"./inject/clean.js"
+        
+    });
+});

@@ -8,24 +8,40 @@
     "48": "./images/apple_64.png",
     "32": "./images/apple_48.png"
   },
-
   "browser_action": {
     "default_icon": "./images/apple_48.png",
-    "default_popup": "popup.html",
-    "default_title": "上帝之眼"
+    /*"default_popup": "popup.html",*/
+    "default_title": "自己慢慢写插件，改变背景色"
   },
+  "content_scripts": [
+    {
+      "matches": [
+        "http://www.theguardian.com/politics/2015/may/28/david-cameron-sets-off-on-mission-to-win-over-european-leaders"
+      ],
+      "css": [
+        "./inject/clean.css"
+      ],
+      "js": [
+        "./inject/clean.js"
+      ]
+    }
+  ],
   "permissions": [
-    "http://*.shanbay.com/*",
-    "notifications"
+    /*"http:*//*//**//*.shanbay.com*//**//*",
+    "notifications",*/
+    "activeTab"
   ],
   "options_page": "options.html",
   "background": {
     "scripts": [
       "background.js"
-    ]
+    ],
+    "persistent": false
   },
   "web_accessible_resources": [
     "./images/apple_48.png"
   ]
+
 }
+
 

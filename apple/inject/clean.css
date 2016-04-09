@@ -1,0 +1,23 @@
+/*
+head {
+    display: none !important;
+}
+
+
+body {
+
+    background: rebeccapurple !important;
+
+}*/
+
+.complain{
+    position: fixed;
+    width: 200px;
+    height: 200px;
+    top: 200px;
+    left: 300px;
+    background: orange;
+
+}
+
+
