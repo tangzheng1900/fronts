@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Drag</title>
+
+    <style type="text/css">
+        body {
+            margin: 0;
+            padding: 0;
+            position: relative;
+        }
+
+        #mainpanel {
+
+            margin: 0;
+            padding: 3px;
+
+            width: 200px;
+            height: 200px;
+            position: absolute;
+            left: 50px;
+            top: 80px;
+        }
+
+        #title {
+            height: 50px;
+            background: greenyellow;
+            opacity: 0.8;
+        }
+
+        #content {
+            height: 150px;
+            background: #9c81a9;
+            opacity: 0.6;
+        }
+
+        .container {
+            width: 100%;
+            height: 600px;
+            /*background: palegreen;*/
+        }
+
+        #ui_boxyClose {
+            width: 28px;
+            height: 28px;
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            cursor: pointer;
+            background: url('./boxy_btn.png') no-repeat;
+            z-index: 1
+        }
+
+        .ie6_0 .ui_boxyClose {
+            background: 0;
+            filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='boxy_btn.png', sizingMethod='scale')
+        }
+
+    </style>
+
+
+</head>
+<body>
+
+<div class="container" onmouseup="message()">
+    <article>
+        <textarea name="summary" cols="60" rows="5" onselect="message1()">请写入个人简介，不少于200字！
+</textarea>
+        As the government publishes the legislation that will allow for an in/out EU referendum by the end of 2017, the
+        prime minister will visit The Hague, Paris, Warsaw and Berlin before an EU summit next month.
+
+        The Guardian view on the Queen’s speech: it all comes back to Europe
+        Editorial: The legislative programme traipses across all sorts of fields, mixing the good, the bad and the ugly.
+        It felt directionless, but in truth everything was geared towards the EU referendum
+        Read more
+        The prime minister meets his Dutch counterpart Mark Rutte over lunch in The Hague on Thursday, followed by talks
+        at the Elysée Palace in Paris with the French president, François Hollande. On Friday, he visits the Polish
+        prime minister, Ewa Kopacz, in Warsaw before flying to Berlin for talks with Angela Merkel, the German
+        chancellor.
+
+        The tour comes after the government unveiled its principle measure in the Queen’s speech – a bill to permit the
+        first referendum on Britain’s membership of the EU since 1975.
+
+        The bill will confirm that the government has accepted the advice of the Electoral Commission on the referendum
+        question. Voters will be asked: “Should the United Kingdom remain a member of the European Union?” This
+        contrasts with the question in the Tory private members’ bill in the last parliament which asked: “Do you think
+        that the United Kingdom should be a member of the European Union?” The commission suggested that this question
+        risked confusing some voters who might not have realised that the UK is already a member of the EU.
+
+        The question means that the campaign to stay in the EU will be the yes side while the anti-EU campaign will be
+        the no side, the reverse of the Scottish referendum in which the status quo – to remain in the UK – was the no
+        side.
+
+        The prime minister made clear that all members of his government would be bound by his negotiations as he hinted
+        that ministers may also be expected to campaign on the same side in the referendum campaign. He told MPs: “The
+        government have a very clear view, which is that we believe that the right answer is reform, renegotiation and
+        referendum. We go into that believing that Britain will be successful. That is the view of all the government
+        and every government minister.”
+
+        As he prepared for his tour of EU capitals, Cameron was warned of the challenges ahead when French newspaper Le
+        Monde reported over the weekend that Hollande and Merkel have agreed that reforms to the eurozone should be
+        delivered under the EU’s current treaties. The decision means that Cameron is unlikely to secure the “full-on”
+        treaty change he demanded in January. British sources have suggested recently that he might press for a legally
+        binding protocol. This could be attached to a future revision of the Lisbon treaty or to the next accession
+        treaty for a new EU member state.
+
+        The prime minister is planning to demand change in four broad areas. He wants to:
+
+        Bar unemployed EU migrants from claiming benefits and force EU migrants in employment to wait four years before
+        claiming in-work benefits. This will be resisted in Warsaw.
+        Hand the UK an opt-out from the “ever closer union” declaration.
+        Ensure that EU member states outside the eurozone, such as the UK, could not have changes to the rules of the
+        single market imposed on them by eurozone countries.
+        Give national parliaments the right to club together to block new legislative proposals.
+            </textarea>
+    </article>
+
+</div>
+
+<div id="mainpanel">
+    <div id="title">
+
+    </div>
+
+    <div id="content">
+
+    </div>
+
+    <div id="ui_boxyClose">
+
+    </div>
+
+</div>
+
+<script language="JavaScript">
+
+    function getByClass(className, parent) {
+        var oParent = parent ? document.getElementById(parent) : document;
+        var eles = [];
+        elements = oParent.getElementsByTagName('*');
+
+        for (var i = 0; i < elements.length; i++) {
+
+            if (elements[i].className == className) {
+                eles.push(elements[i]);
+            }
+        }
+        return eles;
+    }
+
+    window.onload = drag;
+
+    function message() {
+        //alert("选择了一部分");
+
+        var oMainpanel = document.getElementById("mainpanel");
+        var content=document.getElementById("content");
+        if (oMainpanel.style.display == "none") {
+            oMainpanel.style.left=event.clientX+'px';
+            oMainpanel.style.top=event.clientY+'px';
+            oMainpanel.style.display = "block";
+        }
+        content.innerHTML= " "+window.getSelection();
+    }
+
+    function drag() {
+        var oTitle = document.getElementById("title");
+        //拖拽功能
+        oTitle.onmousedown = fnDown;
+        //关闭功能
+        var oClose=document.getElementById("ui_boxyClose");
+        oClose.onclick=function () {
+            document.getElementById("mainpanel").style.display="none";
+            event.stopPropagation();
+
+        };
+       /* document.body.onclick=function () {
+            var oMainpanel=document.getElementById("mainpanel");
+            if(oMainpanel.style.display=="none"){
+                oMainpanel.style.display="block";
+            }
+        }*/
+    }
+
+    function fnDown(event) {
+        var oDrag = document.getElementById("mainpanel"),
+                event = event || window.event,
+                disX = event.clientX - oDrag.offsetLeft,
+                disY = event.clientY - oDrag.offsetTop;
+
+        document.onmousemove = function (event) {
+            event = event || window.event;
+            fnMove(event, disX, disY);
+
+        };
+        document.onmouseup = function () {
+            document.onmousemove = null;
+        };
+
+        /*  document.onmousemove=function (event) {
+         event=event||window.event;
+         //document.title=event.clientX+","+event.clientY;
+         oDrag.style.left=event.clientX+'px';
+         oDrag.style.top=event.clientY+'px';
+
+         }*/
+
+    }
+
+
+    function fnMove(e, posX, posY) {
+        var oDrag = document.getElementById("mainpanel");
+        var l = e.clientX - posX;
+        var t = e.clientY - posY;
+        var winW = document.documentElement.clientWidth || document.body.clientWidth;
+        var winH = document.documentElement.clientHeight || document.body.clientHeight;
+        var maxW = winW - oDrag.offsetWidth-10;
+        var maxH = winH - oDrag.offsetHeight;
+
+        if (l < 0) {
+            l = 0;
+        }
+        else if (l > maxW) {
+            l = maxW;
+        }
+
+        if (t < 0) {
+            t = 5;
+        }
+        else if (t > maxH) {
+            t = maxH;
+        }
+
+        oDrag.style.left = l + 'px';
+        oDrag.style.top = t + 'px';
+
+    }
+
+</script>
+
+
+</body>
+</html>
