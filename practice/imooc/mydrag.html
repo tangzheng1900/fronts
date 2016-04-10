@@ -9,13 +9,12 @@
             margin: 0;
             padding: 0;
             position: relative;
+            overflow-x: hidden;
         }
 
         #mainpanel {
-
             margin: 0;
             padding: 3px;
-
             width: 200px;
             height: 200px;
             position: absolute;
@@ -26,13 +25,14 @@
         #title {
             height: 50px;
             background: greenyellow;
-            opacity: 0.8;
+            opacity: 0.9;
         }
 
         #content {
             height: 150px;
             background: #9c81a9;
-            opacity: 0.6;
+            opacity: 0.95;
+            overflow: auto;
         }
 
         .container {
@@ -45,8 +45,8 @@
             width: 28px;
             height: 28px;
             position: absolute;
-            top: -10px;
-            right: -10px;
+            top: -5px;
+            right: -5px;
             cursor: pointer;
             background: url('./boxy_btn.png') no-repeat;
             z-index: 1
@@ -113,14 +113,22 @@
         Ensure that EU member states outside the eurozone, such as the UK, could not have changes to the rules of the
         single market imposed on them by eurozone countries.
         Give national parliaments the right to club together to block new legislative proposals.
-            </textarea>
+
+        The prime minister is planning to demand change in four broad areas. He wants to:
+
+        Bar unemployed EU migrants from claiming benefits and force EU migrants in employment to wait four years before
+        claiming in-work benefits. This will be resisted in Warsaw.
+        Hand the UK an opt-out from the “ever closer union” declaration.
+        Ensure that EU member states outside the eurozone, such as the UK, could not have changes to the rules of the
+        single market imposed on them by eurozone countries.
+        Give national parliaments the right to club together to block new legislative proposals.
     </article>
 
 </div>
 
 <div id="mainpanel">
     <div id="title">
-
+     <div>用户状态</div>
     </div>
 
     <div id="content">
@@ -156,12 +164,28 @@
 
         var oMainpanel = document.getElementById("mainpanel");
         var content=document.getElementById("content");
-        if (oMainpanel.style.display == "none") {
-            oMainpanel.style.left=event.clientX+'px';
-            oMainpanel.style.top=event.clientY+'px';
-            oMainpanel.style.display = "block";
+        var selection=window.getSelection();
+        var winW = document.documentElement.clientWidth || document.body.clientWidth;
+        var bound=winW-210;
+        var leftbound=event.clientX;
+        if(selection.anchorOffset != selection.extentOffset) {
+            if (oMainpanel.style.display == "none") {
+                if(leftbound>bound){leftbound=bound;}
+                oMainpanel.style.left = leftbound + 'px';
+                oMainpanel.style.top = event.clientY + 'px';
+                oMainpanel.style.display = "block";
+            }
+            ///////不一定需要这一个
+            else{
+                if(leftbound>bound){leftbound=bound;}
+                oMainpanel.style.display = "none" ;
+                oMainpanel.style.left = leftbound + 'px';
+                oMainpanel.style.top = event.clientY + 'px';
+                oMainpanel.style.display = "block";
+            }
+
+            content.innerHTML = " " + selection;
         }
-        content.innerHTML= " "+window.getSelection();
     }
 
     function drag() {
