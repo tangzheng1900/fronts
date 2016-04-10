@@ -2,14 +2,14 @@
  * Created by john on 2016/4/9.
  */
 // Copyright (c) 2011 The Chromium Authors. All rights reserved.
-2	// Use of this source code is governed by a BSD-style license that can be
-3	// found in the LICENSE file.
-4
-5	/*
- 6	  Displays a notification with the current time. Requires "notifications"
- 7	  permission in the manifest file (or calling
- 8	  "Notification.requestPermission" beforehand).
- 9	*/
+	// Use of this source code is governed by a BSD-style license that can be
+	// found in the LICENSE file.
+
+	/*
+	  Displays a notification with the current time. Requires "notifications"
+ 	  permission in the manifest file (or calling
+ 	  "Notification.requestPermission" beforehand).
+	*/
 /*function show() {
     var time = /(..)(:..)/.exec(new Date());     // The prettyprinted time.
     var hour = time[1] % 12 || 12;               // The prettyprinted hour.
