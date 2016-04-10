@@ -56,7 +56,11 @@ chrome.browserAction.onClicked.addListener(function (tab) {
     /*chrome.tabs.executeScript({
         code: 'document.body.style.backgroundColor="red"'
     });*/
-    chrome.tabs.executeScript(null,{file:"./inject/clean.js"
-        
-    });
+
+    if( confirm("清爽一下？？")){
+        chrome.tabs.executeScript(null,{file:"./inject/clean.js"
+
+        });
+    }
+
 });
