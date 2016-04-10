@@ -63,7 +63,7 @@
 </head>
 <body>
 
-<div class="container" onmouseup="message()">
+<div class="container" onmouseup="message()" >
     <article>
         <textarea name="summary" cols="60" rows="5" onselect="message1()">请写入个人简介，不少于200字！
 </textarea>
@@ -126,9 +126,9 @@
 
 </div>
 
-<div id="mainpanel">
+<!--<div id="mainpanel">
     <div id="title">
-     <div>用户状态</div>
+     <div class="info">用户状态</div>
     </div>
 
     <div id="content">
@@ -139,9 +139,37 @@
 
     </div>
 
-</div>
+</div>-->
 
 <script language="JavaScript">
+
+    function createpanel() {
+
+        var div_mainpanel=document.createElement("div");
+            div_mainpanel.id="mainpanel";
+
+        var div_info=document.createElement("div");
+            div_info.className="info";
+            div_info.innerHTML="用户状态";
+        var div_title=document.createElement("div");
+            div_title.id="title";
+            div_title.appendChild(div_info);
+
+        var div_content=document.createElement("div");
+            div_content.id="content";
+
+        var div_ui_boxyClose=document.createElement("div");
+            div_ui_boxyClose.id="ui_boxyClose"
+
+        div_mainpanel.appendChild(div_title);
+        div_mainpanel.appendChild(div_content);
+        div_mainpanel.appendChild(div_ui_boxyClose);
+
+        document.body.appendChild(div_mainpanel);
+
+    }
+
+
 
     function getByClass(className, parent) {
         var oParent = parent ? document.getElementById(parent) : document;
@@ -157,7 +185,13 @@
         return eles;
     }
 
-    window.onload = drag;
+   // window.onload = drag;
+    window.onload=function () {
+        alert("使用js创建一个结构");
+        createpanel();
+        drag();
+
+    };
 
     function message() {
         //alert("选择了一部分");
@@ -186,6 +220,7 @@
 
             content.innerHTML = " " + selection;
         }
+        else{oMainpanel.style.display = "none";}
     }
 
     function drag() {
@@ -231,6 +266,8 @@
          }*/
 
     }
+
+
 
 
     function fnMove(e, posX, posY) {
