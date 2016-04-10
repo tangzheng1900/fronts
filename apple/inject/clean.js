@@ -34,18 +34,16 @@ document.addEventListener('DOMContentLoaded', function () {
 
 ///////////////////////4.9用js注入css和其他的方法
 
-/*var link = document.createElement('link');
+var link = document.createElement('link');
 document.body.appendChile(link);
 link .setAttribute('rel','stylesheet');
-link .setAttribute('href','c:/xxx/xxx/xxx.css');
-link .setAttribute('type','text/css'); */
+link .setAttribute('href','./clean.css');
+link .setAttribute('type','text/css');
 
 /////////////////////////////
 function getloc() {
 
     //找到需要修改的节点，类，修改样式
-
-
 
 }
 
