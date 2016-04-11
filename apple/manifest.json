@@ -16,7 +16,7 @@
   "content_scripts": [
     {
       "matches": [
-        "http://www.theguardian.com/politics/2015/may/28/david-cameron-sets-off-on-mission-to-win-over-european-leaders"
+        "http://www.theguardian.com/*"
       ],
       "css": [
         "./inject/clean.css"

@@ -8,19 +8,31 @@
 
 //////清掉广告
 var ad=document.getElementsByClassName("top-banner-ad-container");
-alert("清楚的广告类长度"+ad.length);
-document.body.removeChild(ad[0]);
+alert("清除的广告类长度"+ad.length);
+if(ad){
+    document.body.removeChild(ad[0]);
+}
+
 
 var richlink=document.getElementsByClassName("element-rich-link");
 alert("richlink长度"+richlink.length);
-richlink[0].style.display="none";
+if(richlink.length){
+    richlink[0].style.display="none";
+}
 
-var rightad=document.getElementsByClassName("content__secondary-column js-secondary-column")[0];
-rightad.style.display="none";
+
+var rightad=document.getElementsByClassName("content__secondary-column js-secondary-column");
+if(rightad.length){
+    rightad[0].style.display="none";
+}
+
 
 var leftad=document.getElementsByClassName("content__meta-container js-content-meta js-football-meta");
 alert("左侧广告的长度"+leftad.length);
-leftad[0].style.display="none";
+if(leftad.length){
+    leftad[0].style.display="none";
+}
+
 
 /*var aside=document.getElementsByTagName("aside");
 alert("aside的长度"+aside.length);
@@ -31,14 +43,30 @@ for(var i=0;i<aside.length;i++){
 var leftlink=document.getElementsByClassName("element element-rich-link");
 alert("leftlink长度"+leftlink.length);
 //for(var i=0;i<leftlink.length;i++){
+if(leftlink.length){
     leftlink[0].style.display="none";
+}
+
 //}
 
 
 
 var footer=document.getElementsByClassName("content-footer");
 alert("footer长度是"+footer.length);
-footer[0].style.display="none";
+if(footer.length){
+    footer[0].style.display="none";
+}
+
+
+var google_image_div=document.getElementById("google_image_div");
+if(google_image_div){
+    google_image_div.style.display="none";
+}
+
+var dfp=document.getElementById("dfp-ad--inline1");
+if(dfp){
+    dfp.style.display="none";
+}
 
 
 
@@ -54,6 +82,12 @@ var news=document.getElementsByClassName("content__main tonal__main tonal__main-
 //alert("这个类的div共（划词区域）"+news.length);
 //news.setAttribute("onmouseup","message()");
 news[0].onmouseup=message;
+
+var header=document.getElementsByClassName("content__head tonal__head tonal__head--tone-news");
+if(header){
+    header[0].onmouseup=message;
+}
+
 
 
 function model() {
@@ -122,6 +156,7 @@ function createpanel() {
     div_mainpanel.appendChild(div_ui_boxyClose);
 
     document.body.appendChild(div_mainpanel);
+    div_mainpanel.style.display="none";
 
 }
 
@@ -155,7 +190,7 @@ function message() {
     var oMainpanel = document.getElementById("mainpanel");
     var content=document.getElementById("content");
     var selection=window.getSelection();
-    alert("选中的内容是"+selection);
+    //alert("选中的内容是"+selection);
     var winW = document.documentElement.clientWidth || document.body.clientWidth;
     var bound=winW-210;
     var leftbound=event.clientX;
