@@ -74,6 +74,7 @@ alert("使用js创建一个结构");
 createpanel();
 drag();
 
+alert("查看是否可以跨文件调用");
 
 
 
