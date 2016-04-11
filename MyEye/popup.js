@@ -210,24 +210,35 @@ function queryNotFound(word) {
     showTips('<span class="word">' + word + '</span> 没有找到。');
 }
 
+
+var result={};
 function query(word) {
     // show this let user don't panic
-    showTips('查询中...');
-    clearArea('jump');
-    clearArea('definition');
+   // showTips('查询中...');
+    //clearArea('jump');
+   // clearArea('definition');
+
     var request = new XMLHttpRequest();
     var query_url = 'http://www.shanbay.com/api/word/' + word;
     request.open('GET', query_url);
     request.onreadystatechange = function () {
         if (request.readyState === 4) {
             var response = JSON.parse(request.responseText);
+           // alert("response.voc.definition是:"+response.voc.definition);
             if (response.voc != '')
-                queryOk(response);
+                //queryOk(response);
+                { result.difinition=""+response.voc.definition; return true;}
             else
-                queryNotFound(word);
+               //queryNotFound(word);
+                {  result.definition= "goodbye"; return true;}
         }
-    }
+
+    };
+
     request.send(null);
+    if(request.onreadystatechange) return true;
+    //return result;
+
 }
 
 function parse(input) {
@@ -297,6 +308,7 @@ document.addEventListener('DOMContentLoaded', function () {
     document.querySelector('#jump').addEventListener('click', addWord);
     document.querySelector('#sound').addEventListener('click', playSound);
     document.querySelector('#sound').addEventListener('mouseover', playSound);
+    document.querySelector('#excute').addEventListener('click',exctejs);
 });
 
 /////////////////////////划词
@@ -318,4 +330,43 @@ window.onmouseup = function(){
     
 
 };
+
+///////在主页面点击执行时在执行脚本。
+function exctejs(){
+   // alert("执行自己的js");
+
+    chrome.tabs.executeScript(null,{file:"./inject/clean.js"
+
+    });
+
+}
+
+
+////这里需要使用文件之间的通信来完成
+
+chrome.extension.onMessage.addListener(
+    function(request, sender, sendResponse) {
+        /*console.log(sender.tab ?
+        "from a content script:" + sender.tab.url :
+            "from the extension");*/
+       // alert("从前台接收的单词是"+request.greeting);
+        if(query(""+request.greeting)){
+            alert("后台返回之前经历一个查找过程，结果？？"+result.difinition);
+            sendResponse(result);
+
+            result={};
+        }
+        //if (request.greeting == "hello")
+            //sendResponse({farewell: "goodbye"});
+
+
+
+           
+
+       // else
+           // sendResponse({}); // snub them.
+    });
+
+
+
 

@@ -7,26 +7,141 @@
     <script src="popup.js"></script>
   </head>
   <body>
-    <p id="header"><span id="logo"><img src="static/icon48.png" width="22" height="22"/><span class="color">扇贝网</span></span><span id="status"></span></p>
-    <hr />
-    <div id="search_area"><input id="input" type="text" name="query" /><button id="search">查询</button><span id="jump"></span></div>
-    <div id="tips">
-    </div>
-    <div id="definition">
+ <p id="header"><span id="logo"><img src="static/icon48.png" width="22" height="22"/><span
+          class="color">扇贝网</span></span><span id="status"></span></p>
+  <hr/>
+  <div id="search_area"><input id="input" type="text" name="query"/>
+      <button id="search">查询</button>
+      <span id="jump"></span></div>
+
+  <div id="tips"></div>
+
+  <div id="definition">
       <span id="content" class="word"></span>
       <span id="pron"></span>
       <span id="sound"></span>
       <div id="zh_trans"></div>
       <div id="en_trans"></div>
-    </div>
-    <hr />
-    <div id="footer">
+  </div>
+  <hr/>
+  <div id="footer">
       <span id="about">
 	<p>
+      <input type="button" id="excute" value="执行去广告和划词翻译">
 	  <a href="options.html">选项</a>
 	  <span>-</span>
 	  <a href="https://github.com/gamerh2o/shanbay-chromium-extension#readme" target="_newtab">关于</a></p>
       </span>
-    </div>
+  </div>
+
+   <!-- <script language="JavaScript">
+
+      function createnode(element,id) {
+        var node=document.createElement(""+element);
+        if(id){
+          node.id=""+id;
+        }
+        return node;
+      }
+
+      function createmain() {
+          var p_head=createnode("p","header");
+          var span_logo=createnode("span","logo");
+          var logo_img=createnode("img");
+          logo_img.src="static/icon48.png";
+          logo_img.style.width="22px";
+          logo_img.style.height="22px";
+          var span_color=createnode("span");
+          span_color.className="color";
+          span_color.innerText="扇贝网";
+          var span_status=createnode("span","status");
+
+          span_logo.appendChild(logo_img);
+          span_logo.appendChild(span_color);
+          p_head.appendChild(span_logo);
+          p_head.appendChild(span_status);
+
+          var hr=createnode("hr");
+
+          //////////
+
+          var div_search_area=createnode("div","search_area");
+          var input_word=createnode("input","input"); input_word.type="text";input_word.name="query";
+          var btn_search=createnode("button","search");btn_search.innerText="查询";
+          var span_jump=createnode("span","jump");
+          div_search_area.appendChild(input_word);
+          div_search_area.appendChild(btn_search);
+          div_search_area.appendChild(span_jump);
+
+          /////
+          var div_tips=createnode("div","tips");
+          ////
+
+          var div_definition=createnode("div","definition");
+          var span_content=createnode("span","content"); span_content.className="word";
+          var span_pron=createnode("span","pron");
+          var span_sound=createnode("span","sound");
+          var div_zh_trans=createnode("div","zh_trans");
+          var div_en_trans=createnode("div","en_trans");
+          div_definition.appendChild(span_content);
+          div_definition.appendChild(span_pron);
+          div_definition.appendChild(span_sound);
+          div_definition.appendChild(div_zh_trans);
+          div_definition.appendChild(div_en_trans);
+
+          /////////////////////////////////////////
+          ///hr
+          var hr2=createnode("hr");
+
+          var div_footer=createnode("div","footer");
+          var span_about=createnode("span","about");
+          var p_single=createnode("p",null);
+          var a_single=createnode("a",null);a_single.href="options.html";a_single.innerText="选项";
+          var span_single=createnode("span",null); span_single.innerText="-";
+          var a_git=createnode("a",null);a_git.href="https://github.com/gamerh2o/shanbay-chromium-extension#readme";
+          a_git.target="_newtab";a_git.innerText="关于";
+
+          span_about.appendChild(p_single);
+          p_single.appendChild(a_single);
+          p_single.appendChild(span_single);
+          p_single.appendChild(a_git);
+
+          div_footer.appendChild(span_about);
+
+
+//////////创建一个新的主面板
+          alert("创建一个主面板");
+
+          var div_main=createnode("div","main"); div_main.style.border="1px solid blue"
+          div_main.appendChild(p_head);
+          div_main.appendChild(hr);
+          div_main.appendChild(div_search_area);
+          div_main.appendChild(div_tips);
+          div_main.appendChild(div_definition);
+          div_main.appendChild(hr2);
+          div_main.appendChild(div_footer);
+          div_main.style.position="absolute";
+          return div_main;
+
+      }
+
+////////////heder
+
+
+
+      window.onload=function () {
+          alert("函数为什么不执行");
+          var div_main=createmain();
+          document.body.appendChild(div_main);
+          var newdiv=createnode("div","mydiv");
+          alert(newdiv);
+          newdiv.innerHTML="wode diddiidididididid";
+          document.getElementById("definition").appendChild(newdiv);
+      }
+
+    </script>-->
+
+
+
   </body>
 </html>

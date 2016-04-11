@@ -1,8 +1,8 @@
 {
-  "name": "Conch (上帝之眼)",
+  "name": "My Eye(上帝之眼)",
   "version": "1.1.2",
    "manifest_version": 2,
-  "description": "清除页面无用的东西，划词翻译功能！",
+  "description": "扇贝翻译基础加入自己的去广告和悬浮！",
   "icons": {
     "128": "./images/icon_128.png",
     "48": "./images/icon_48.png",
@@ -16,23 +16,32 @@
   "content_scripts": [
     {
       "matches": [
-        "http://weibo.com/*",
-        "https://weibo.com/*",
-        "http://*.weibo.com/*",
-        "https://*.weibo.com/*"
+        "http://www.theguardian.com/*"
       ],
       "js": [
         "js/jquery.js",
         "js/clean.js"
       ],
       "css": [
-        "css/style.css"
+        "css/style.css",
+        "./inject/clean.css"
       ]
     }
   ],
   "permissions": [
-	"http://*.shanbay.com/*"
-    ]
+	"http://*.shanbay.com/*",
+    "activeTab"
+    ],
+  "options_page": "options.html",
+  "background": {
+    "scripts": [
+      "popup.js"
+    ],
+    "persistent": false
+  },
+  "web_accessible_resources": [
+    "./images/apple_48.png"
+  ]
 }
 
 
