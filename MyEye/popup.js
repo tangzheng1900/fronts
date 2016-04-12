@@ -222,7 +222,6 @@ function query(word) {
         return;
     }
     else {
-        result = {};
         locked = true;
     }
 
@@ -232,7 +231,7 @@ function query(word) {
     request.onreadystatechange = function () {
         if (request.readyState === 4) {
             var response = JSON.parse(request.responseText);
-          //  alert("response.voc.definition是:"+response.voc.definition);
+           // alert("response.voc.definition是:"+response.voc.definition);
             if (response.voc != '')
                 //queryOk(response);
                 {
@@ -241,7 +240,9 @@ function query(word) {
                 }
             else
                //queryNotFound(word);
-                {  result.definition= "goodbye";}
+                {  result.definition= "Not found!";
+                    locked = false;
+                }
         }
     };
 
@@ -256,24 +257,13 @@ function query(word) {
 
 chrome.extension.onMessage.addListener(
     function(request, sender, sendResponse) {
-        /*console.log(sender.tab ?
-         "from a content script:" + sender.tab.url :
-         "from the extension");*/
-
-        // query(""+request.greeting);
-        // if(query(""+request.greeting)){
-        //     // alert("后台返回之前经历一个查找过程，结果？？"+result);
-        //     alert("addListener");
-
-
-
         query(""+request.greeting);
-        sendResponse(result);
-        // result = {};
-        //if (request.greeting == "hello")
-        //sendResponse({farewell: "goodbye"});
-        // else
-        // sendResponse({}); // snub them.
+        sendResponse(JSON.parse(JSON.stringify(result)));
+        if (result && result.definition) {
+            setTimeout(function() {
+                result = {};
+            }, 100);
+        }
     });
 
 function parse(input) {

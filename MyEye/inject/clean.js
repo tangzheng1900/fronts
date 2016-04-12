@@ -6,90 +6,75 @@
 //model();
 
 
-//////清掉广告
-var ad=document.getElementsByClassName("top-banner-ad-container");
+function cleanAd() {
+    //////清掉广告
+    var ad=document.getElementsByClassName("top-banner-ad-container");
 //alert("清除的广告类长度"+ad.length);
-if(ad.length){
-    document.body.removeChild(ad[0]);
-}
+    if(ad.length){
+        document.body.removeChild(ad[0]);
+    }
 
 
-var richlink=document.getElementsByClassName("element-rich-link");
+    var richlink=document.getElementsByClassName("element-rich-link");
 //alert("richlink长度"+richlink.length);
-if(richlink.length){
-    richlink[0].style.display="none";
-}
+    if(richlink.length){
+        richlink[0].style.display="none";
+    }
 
-var newad=document.getElementsByClassName("rich-link__container");
+    var newad=document.getElementsByClassName("rich-link__container");
 //alert("rich-link__container的长度"+newad.length);
-if(newad.length){
+    if(newad.length){
+        
+        for(var i=0;i<newad.length;i++){
+            newad[i].style.display="none";
+        }
 
-    newad[0].style.display="none";
-}
-
-
-var rightad=document.getElementsByClassName("content__secondary-column js-secondary-column");
-if(rightad.length){
-    rightad[0].style.display="none";
-}
+    }
 
 
-var leftad=document.getElementsByClassName("content__meta-container js-content-meta js-football-meta");
+    var rightad=document.getElementsByClassName("content__secondary-column js-secondary-column");
+    if(rightad.length){
+        rightad[0].style.display="none";
+    }
+
+
+    var leftad=document.getElementsByClassName("content__meta-container js-content-meta js-football-meta");
 //alert("左侧广告的长度"+leftad.length);
-if(leftad.length){
-    leftad[0].style.display="none";
-}
+    if(leftad.length){
+        leftad[0].style.display="none";
+    }
 
-
-/*var aside=document.getElementsByTagName("aside");
-alert("aside的长度"+aside.length);
-for(var i=0;i<aside.length;i++){
-    document.body.removeChild(aside[i]);
-}*/
-
-var leftlink=document.getElementsByClassName("element element-rich-link");
+    var leftlink=document.getElementsByClassName("element element-rich-link");
 //alert("leftlink长度"+leftlink.length);
 //for(var i=0;i<leftlink.length;i++){
-if(leftlink.length){
-    leftlink[0].style.display="none";
-}
+    if(leftlink.length){
+        leftlink[0].style.display="none";
+    }
 
-//}
-
-
-
-var footer=document.getElementsByClassName("content-footer");
+    var footer=document.getElementsByClassName("content-footer");
 //alert("footer长度是"+footer.length);
-if(footer.length){
-    footer[0].style.display="none";
+    if(footer.length){
+        footer[0].style.display="none";
+    }
+
+
+    var google_image_div=document.getElementById("google_image_div");
+    if(google_image_div){
+        google_image_div.style.display="none";
+    }
+
+    var dfp=document.getElementById("dfp-ad--inline1");
+    if(dfp){
+        dfp.style.display="none";
+    }
 }
 
 
-var google_image_div=document.getElementById("google_image_div");
-if(google_image_div){
-    google_image_div.style.display="none";
-}
-
-var dfp=document.getElementById("dfp-ad--inline1");
-if(dfp){
-    dfp.style.display="none";
-}
-
-
+window.setInterval(cleanAd(),500);
 
 alert("使用js创建一个结构");
 createpanel();
 drag();
-
-/*
-alert("不同文件之间的通信");
-chrome.extension.sendMessage({greeting: "hello"}, function(response) {
-    alert(response.farewell);
-});
-*/
-
-
-
 
 //////
 var news=document.getElementsByClassName("content__main tonal__main tonal__main--tone-news");
@@ -101,7 +86,6 @@ var header=document.getElementsByClassName("content__head tonal__head tonal__hea
 if(header){
     header[0].onmouseup=message;
 }
-
 
 
 function model() {
@@ -117,7 +101,7 @@ function model() {
 
 document.addEventListener('DOMContentLoaded', function () {
 
-   // model();
+   model();
 
    /* checkLoginStatus();
     document.querySelector('button').addEventListener('click', click);
@@ -145,24 +129,19 @@ function createpanel() {
 
     var div_mainpanel=document.createElement("div");
     div_mainpanel.id="mainpanel";
-
     var div_info=document.createElement("div");
     div_info.className="info";
     div_info.innerHTML="拖动区域";
     var div_title=document.createElement("div");
     div_title.id="title";
     div_title.appendChild(div_info);
-
     var div_content=document.createElement("div");
     div_content.id="content";
-
     var div_ui_boxyClose=document.createElement("div");
     div_ui_boxyClose.id="ui_boxyClose"
-
     div_mainpanel.appendChild(div_title);
     div_mainpanel.appendChild(div_content);
     div_mainpanel.appendChild(div_ui_boxyClose);
-
     document.body.appendChild(div_mainpanel);
     div_mainpanel.style.display="none";
 
@@ -211,14 +190,11 @@ function message() {
         sendInterval = setInterval(function() {
             chrome.extension.sendMessage(jsonrq, function(result) {
                 if (result && result.definition) {
-                    //alert("!!!!" + result.definition);
                     content.innerHTML = ""+selection+"的意思："+"<br/>"+result.definition;
                     clearInterval(sendInterval);
                 }
             });
-        }, 100);
-
-
+        }, 200);
 
 
         //alert("函数外data"+data);
@@ -289,7 +265,6 @@ function fnDown(event) {
 
 
 
-
 function fnMove(e, posX, posY) {
     var oDrag = document.getElementById("mainpanel");
     var l = e.clientX - posX;
@@ -315,5 +290,4 @@ function fnMove(e, posX, posY) {
 
     oDrag.style.left = l + 'px';
     oDrag.style.top = t + 'px';
-
 }

@@ -43,7 +43,7 @@ body {
     margin: 0;
     padding: 3px;
     width: 200px;
-    height: 200px;
+
     position: fixed;
     left: 350px;
     top: 380px;
@@ -52,13 +52,18 @@ body {
 }
 
 #title {
-    height: 50px;
-    background: greenyellow;
+    height: 40px;
+    background: #41beff;
     opacity: 0.9;
+    text-align: center;
+}
+.info{
+    text-align: center;
+
+
 }
 
 #content {
-    height: 150px;
     background: #9c81a9;
     opacity: 0.95;
     overflow: auto;
@@ -71,11 +76,11 @@ body {
 }
 
 #ui_boxyClose {
-    width: 28px;
-    height: 28px;
+    width: 18px;
+    height: 18px;
     position: absolute;
-    top: -5px;
-    right: -5px;
+    top: 0px;
+    right: 0px;
     cursor: pointer;
     background: red;
     z-index: 1042
