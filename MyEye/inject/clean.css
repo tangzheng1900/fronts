@@ -76,13 +76,17 @@ body {
 }
 
 #ui_boxyClose {
-    width: 18px;
-    height: 18px;
+
+    width: 0px;
+    height: 0px;
+    border-top: 10px solid #da70d6;
+    border-right: 10px solid #ff4500;
+    border-bottom: 10px solid #6495ed;
+    border-left: 10px solid #9932cc;
     position: absolute;
-    top: 0px;
-    right: 0px;
+    top: 3px;
+    right: 3px;
     cursor: pointer;
-    background: red;
     z-index: 1042
 }
 
