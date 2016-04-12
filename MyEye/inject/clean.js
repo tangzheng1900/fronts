@@ -208,12 +208,15 @@ function message() {
     if(selection.anchorOffset != selection.extentOffset) {
        // alert("前台选中的单词是："+JSON.stringify(jsonrq));
 
+        sendInterval = setInterval(function() {
             chrome.extension.sendMessage(jsonrq, function(result) {
-                //alert("后台文件给出的结果"+result);
-                //data=response;
-                // alert("函数内data"+data);
-                content.innerHTML = ""+selection+"的意思："+"<br/>"+result.difinition;
+                if (result && result.definition) {
+                    //alert("!!!!" + result.definition);
+                    content.innerHTML = ""+selection+"的意思："+"<br/>"+result.definition;
+                    clearInterval(sendInterval);
+                }
             });
+        }, 100);
 
 
 
