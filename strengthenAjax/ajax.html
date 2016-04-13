@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style type="text/css">
+        table {
+            border-collapse: collapse;
+        }
+
+        table td {
+            text-align: center;
+            border: 1px solid gray;
+            padding: 3px 10px;
+        }
+    </style>
+    <script src="../lib/jquery-2.1.1/jquery.min.js"></script>
+</head>
+<body>
+
+<table>
+    <thead>
+    <tr>
+        <td>学号</td>
+        <td>姓名</td>
+        <td>班别</td>
+        <td>性别</td>
+        <td>电话</td>
+    </tr>
+    </thead>
+    <tbody></tbody>
+</table>
+<input id="btnget" type="button" value="加载数据"/>
+
+
+<div id="data"></div>
+<input type="button" id="get" value="mydata" onclick="getdata()">
+
+<script language="JavaScript">
+
+    $(function () {
+        $("#btnget").click(function () {
+            $.ajax({
+                type: "post",
+                dataType: "json",
+                url: "data.json",
+                success: function (msg) {
+                    var str = "";
+                    for (i in msg) {
+                        str += "<tr><td>" + msg[i].id + "</td><td>" + msg[i].name + "</td><td>" + msg[i].cla + "</td><td>" + msg[i].sex + "</td><td>" + msg[i].tel + "</td></tr>";
+                    }
+                    $("tbody").append(str);
+                }
+            });
+        });
+    });
+
+
+    /*   var sendAjax = (function() {
+     var getXHR = (function() {
+     var xhr;
+     if(window.XHRHttpRequest){
+     xhr = new XMLHttpRequest();
+     }else{
+     xhr = new ActiveObject("Microsoft.XMLHTTP");
+     }
+     return xhr;
+     })();
+     return function(url,opts){ //url为目标地址
+     var xhr = getXHR(),
+     data;
+     xhr.onreadystatechange = function(){
+     if(xhr.readyState===4||xhr.status===200){
+     data = JSON.parse(xhr.responseText);  //将data解析为json对象
+     opts.callback(data);
+     }
+     }
+     xhr.setRequestHeader('Content-Type','application/json');
+     xhr.open(opts.method,url);  //写入参数
+     xhr.send(JSON.stringify(opts.data));  //将参数json字符化
+     }
+     })();
+     //调用执行
+     sendAjax('www.example.com',{
+     callback:function(data){
+     //...
+     },
+     data:{
+     name:'JIMMY',
+     age:18
+     }
+     })*/
+
+
+    function getdata() {
+        var xhr = new XMLHttpRequest();
+        xhr.open("GET", "data.json");
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4) {
+                var data = JSON.parse(xhr.responseText);
+
+                document.getElementById("data").innerHTML = data[0].name;
+
+            }
+            else {
+                document.getElementById("data").innerHTML = "没有找到数据";
+            }
+        };
+        xhr.send(null);
+
+    }
+</script>
+
+
+</body>
+</html>
