@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <style>
+
+        #default{
+
+            margin: 0;
+            padding: 0;
+            background: burlywood;
+        }
+
+        ::before{
+            content: "";
+            display: block;
+        }
+        ::after{
+            content: "";
+            display: block;
+            clear: both;
+            height: 1px;
+        }
+
+
+
+    </style>
+
+</head>
+<body class id="default">
+::before
+<div class="inner">
+    <h1>Log In</h1>
+    <div class="content small">
+        <form action="http://www.tangzheng.me" method="post">
+
+            <section>
+
+                <div class="field">
+                    <lable for="email">Email</lable>
+                    <input type="email" name="email" id="email" data-type="email" autofocus>
+                </div>
+
+                <div class="field">
+                    <lable for="password">Password</lable>
+                    <input type="password" name="password" id="password" data-type="password">
+                </div>
+                ::after
+            </section>
+
+            <ul class="actions vertical">
+                <li>
+                    <input type="submit" value="Log In" class="special fit">
+                </li>
+                <li>
+                    <a href="/resert-password" class="minor">Forget your password?</a>
+                </li>
+            </ul>
+            ::after
+        </form>
+
+
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
