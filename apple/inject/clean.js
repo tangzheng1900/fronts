@@ -150,7 +150,7 @@ function createpanel() {
     div_content.id="content";
 
     var div_ui_boxyClose=document.createElement("div");
-    div_ui_boxyClose.id="ui_boxyClose"
+    div_ui_boxyClose.id="ui_boxyClose";
 
     div_mainpanel.appendChild(div_title);
     div_mainpanel.appendChild(div_content);
