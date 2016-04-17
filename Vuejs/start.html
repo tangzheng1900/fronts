@@ -143,13 +143,38 @@
 
 <hr>
 
-<div>
-    <span>Message is: </span><p>{{message}}</p>
+<div id="pp">
+    <p >{{message}}</p>
     <br>
     <input type="text" v-model="message" placeholder="edit">
 
 </div>
+<script>
+    new Vue({
+        el:'#pp',
+        data:{
+            message:'hhhhhh'
+        }
+    })
+</script>
 
+<hr>
+<input type="radio" id="one" value="One" v-model="picked">
+<label for="one">One</label>
+<br>
+<input type="radio" id="two" value="Two" v-model="picked">
+<label for="two">Two</label>
+<br>
+<span>Picked: {{ picked }}</span>
+<script>
+
+    new Vue({
+        el:'span',
+        data:{
+            picked:''
+        }
+    })
+</script>
 
 
 </body>
