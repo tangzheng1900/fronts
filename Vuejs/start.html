@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/vue/1.0.21/vue.min.js"></script>
+    <!--<script src="http://cdnjs.cloudflare.com/ajax/libs/vue/1.0.21/vue.min.js"></script>-->
+    <script src="lib/vue.js"></script>
 </head>
 <body>
 
@@ -117,6 +118,38 @@
         }
     })
 </script>
+
+<hr>
+<div id="example">
+
+    <button v-on:click="greet">Greet</button>
+</div>
+<script>
+    var vm=new Vue({
+        el:'#example',
+        data:{
+            name:"Vue.js"
+        },
+        methods:{
+            greet:function (event) {
+                alert('hello'+this.name+'!');
+                alert(event.target.tagName);
+
+            }
+        }
+    })
+
+</script>
+
+<hr>
+
+<div>
+    <span>Message is: </span><p>{{message}}</p>
+    <br>
+    <input type="text" v-model="message" placeholder="edit">
+
+</div>
+
 
 
 </body>
