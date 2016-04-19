@@ -159,6 +159,8 @@
 </script>
 
 <hr>
+<div id="radio">
+<h2>radio</h2>
 <input type="radio" id="one" value="One" v-model="picked">
 <label for="one">One</label>
 <br>
@@ -166,15 +168,42 @@
 <label for="two">Two</label>
 <br>
 <span>Picked: {{ picked }}</span>
+</div>
 <script>
 
     new Vue({
-        el:'span',
+        el:'#radio',
         data:{
             picked:''
         }
     })
 </script>
+
+<hr>
+<h2>多选框</h2>
+
+<div id="checkbox">
+<input type="checkbox" id="jack" value="Jack" v-model="checkedNames">
+<label for="jack">Jack</label>
+<input type="checkbox" id="john" value="John" v-model="checkedNames">
+<label for="john">John</label>
+<input type="checkbox" id="mike" value="Mike" v-model="checkedNames">
+<label for="mike">Mike</label>
+<br>
+<span>Checked names: {{ checkedNames | json }}</span>
+</div>
+
+<script>
+
+    new Vue({
+        el: '#checkbox',
+        data: {
+            checkedNames: []
+        }
+    })
+</script>
+
+
 
 
 </body>
