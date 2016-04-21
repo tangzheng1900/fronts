@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>For</title>
+</head>
+
+
+<body>
+
+
+<script>
+
+    var arr=[10,9,8,7,6,5,4,3,2,1];
+    arr.forEach(function (item) {
+        console.log(item);
+
+    });
+
+    for(var index in arr){
+        console.log(arr[index]);//index是字符串，for in对对象友好
+    }
+
+
+    for(var value of arr){
+        console.log(value);//对数组友好
+    }
+
+
+</script>
+
+</body>
+</html>

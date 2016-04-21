@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<h1>JSONP测试</h1>
+
+<!--<script src="https://www.shanbay.com/api/word/word&callback=result1">
+    function result1(data) {
+        alert(data);
+
+    }
+</script>-->
+
+<script>
+
+
+    //添加<script>标签的方法
+    function addScriptTag(src){
+        var script = document.createElement('script');
+        script.setAttribute("type","text/javascript");
+        script.src = src;
+        document.body.appendChild(script);
+    }
+
+//    window.onload = function(){//将自定义的回调函数名result传入callback参数中
+//        addScriptTag("localhost/bns-relation/index.php?r=BnsRelation/BnsOfProd&callback=result");
+//
+//    };
+    window.onload = function(){//将自定义的回调函数名result传入callback参数中
+        addScriptTag("https://www.shanbay.com/api/word/word&callback=result");
+
+    };
+
+    //自定义的回调函数result
+    function result(data) { //我们就简单的获取数据
+    //console.log(data);
+        var response=JSON.parse(data);
+        alert(response);
+    }
+
+</script>
+
+
+
+</body>
+</html>
