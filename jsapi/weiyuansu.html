@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .container {
+            position: relative;
+            background-image: url("../img/child.jpg");
+            height: 452px;
+            width: 640px;
+        }
+        .container::after{
+            content: "";
+            position: absolute;
+            display: block;
+            width: 230px;
+            height: 100%;
+            right: 0;
+            top:0;
+            background: #28ff5a;
+            opacity: 0.4;
+        }
+        .container::before{
+            content: "";
+            position: absolute;
+            display: block;
+            width: 230px;
+            height: 100%;
+            left: 0;
+            top:0;
+            background: #ff25fb;
+            opacity: 0.4;
+        }
+
+        a::after {
+            content: "";
+
+        }
+
+
+    </style>
+</head>
+<body>
+
+<h1>伪元素的使用</h1>
+
+<div class="container">
+
+    <a href="http://www.baidu.com"></a>
+
+
+</div>
+
+
+</body>
+</html>
