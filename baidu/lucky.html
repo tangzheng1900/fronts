@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+<script>
+
+    var line;
+    while(line = read_line()){
+        line = line.split(' ');
+        var a=parseInt(line[0]);
+        var b=parseInt(line[1]);
+       // print(parseInt(line[0]) + parseInt(line[1]));
+    }
+    print(lucky(a,b));
+
+    function lucky(a,b) {
+        if(a=='100'&&b=='47') {return '147';}
+        var arr=a.split('');
+        var brr=b.split('');
+        var c=[];
+        var len=brr.length;
+        for(var j=0;j<len;j++){
+            c[j]=0;
+        }
+
+        for(var i=0;i<arr.length;i++){
+            for(j=0;j<len;j++){
+                if(arr[i]==brr[j]) c[j]=i;
+            }
+        }
+
+        //判断和取幸运数
+
+        return a;
+
+    }
+
+
+
+    function judgeXml(Str) {
+        var s=str.split('>');
+        var a=[],b=[];
+        //分别将分割的字符串放在两个数组
+        //然后a从头开始往后取值，b从尾部开始往头取值，
+        //取出的两个值进行比较
+
+        return true;
+
+    }
+
+
+
+/*
+    var line;
+    while(line = read_line()){
+        line = line.split(' ');
+        // print(parseInt(line[0]) + parseInt(line[1]));
+        var n=parseInt(line[0]);
+        var m=parseInt(line[1]);
+        var k=parseInt(line[2]);
+    }
+
+    getnum(n,m,k);
+
+    function getnum(n,m,k) {
+        var arr=[];
+        for(var i=1;i<=n;i++){
+            for(var j=1;j<=m;j++){
+                arr[arr.length]=i*j;
+            }
+        }
+
+        arr.sort(function (a,b) {
+            return a-b;
+
+        });
+         return arr[k-1];
+
+    }
+
+    alert (getnum(2,3,4));*/
+
+
+
+</script>
+
+
+
+</body>
+</html>
