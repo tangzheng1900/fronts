@@ -23,7 +23,7 @@
         <div class="logo">logo</div>
         <ul class="nav-item">
             <li><a href="#">个人分析</a></li>
-            <li><a href="#">学校分析</a></li>
+            <li><a href="school.html">学校分析</a></li>
             <li><a href="#">话题发现</a></li>
             <li><a href="#">数据更新</a></li>
         </ul>
@@ -37,8 +37,62 @@
     </div>
 </div>
 
+    <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+    <div id="main" style="height:400px;width: 500px"></div>
+    <!-- ECharts单文件引入 -->
+    <script src="http://echarts.baidu.com/build/dist/echarts.js"></script>
+    <script type="text/javascript">
+        // 路径配置
+        require.config({
+            paths: {
+                echarts: 'http://echarts.baidu.com/build/dist'
+            }
+        });
 
-<div id="main"></div>
+        // 使用
+        require(
+                [
+                    'echarts',
+                    'echarts/chart/bar' // 使用柱状图就加载bar模块，按需加载
+                ],
+                function (ec) {
+                    // 基于准备好的dom，初始化echarts图表
+                    var myChart = ec.init(document.getElementById('main'));
+
+                    var option = {
+                        tooltip: {
+                            show: true
+                        },
+                        legend: {
+                            data:['销量']
+                        },
+                        xAxis : [
+                            {
+                                type : 'category',
+                                data : ["衬衫","羊毛衫","雪纺衫","裤子","高跟鞋","袜子"]
+                            }
+                        ],
+                        yAxis : [
+                            {
+                                type : 'value'
+                            }
+                        ],
+                        series : [
+                            {
+                                "name":"销量",
+                                "type":"bar",
+                                "data":[5, 20, 40, 10, 10, 20]
+                            }
+                        ]
+                    };
+
+                    // 为echarts对象加载数据
+                    myChart.setOption(option);
+                }
+        );
+    </script>
+
+
 <div id="footer"></div>
 
 
