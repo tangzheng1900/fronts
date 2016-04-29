@@ -1,0 +1,66 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    font-size: 12px;
+}
+#header{
+    background: #000000;
+}
+div{
+    display: block;
+}
+
+#nav{
+    width: auto;
+    padding-right: 20px;
+    height: 60px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 500;
+}
+
+.logo{
+    width: 180px;
+    height: 60px;
+    display: inline-block;
+    background: url("../img/logo.png") no-repeat center;
+    float: left;
+}
+
+.nav-item li{
+    list-style-type: none;
+    width:120px;
+    height:60px;
+    padding: 0 5px;
+    color:whitesmoke;
+    float: left;
+    text-align: center;
+    line-height: 60px;
+}
+
+.nav-item a{
+    display: block;
+}
+
+.nav-item a:link,.nav-item a:visited{
+    text-decoration: none;
+    font-size: 16px;
+    color: #41beff;
+    font-family: 微软雅黑;
+
+}
+
+.nav-item a:hover,.nav-item a:active{
+    color: white;
+    background-color: #363c41;
+
+}
+#login-area{
+    width: 150px;
+    height: 60px;
+    display: inline-block;
+    float: right;
+}
+
+
