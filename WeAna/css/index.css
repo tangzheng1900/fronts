@@ -38,6 +38,9 @@ div{
     text-align: center;
     line-height: 60px;
 }
+.active{
+    background-color:#363c41;
+}
 
 .nav-item a{
     display: block;

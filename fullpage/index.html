@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--fullpage所需要引入的资源-->
+    <link href="//cdn.bootcss.com/fullPage.js/2.7.8/jquery.fullPage.css" rel="stylesheet">
+    <script src="../lib/jquery-2.1.1/jquery.min.js"></script>
+    <script src="//cdn.bootcss.com/fullPage.js/2.7.8/jquery.fullPage.js"></script>
+    <script src="//cdn.bootcss.com/fullPage.js/2.7.8/vendors/jquery.easings.min.js"></script>
+    <script src="//cdn.bootcss.com/fullPage.js/2.7.8/vendors/jquery.slimscroll.js"></script>
+
+    <style>
+        .section1{
+            background-color: orchid;
+        }
+
+        .section2{
+            background-color: greenyellow;
+        }
+        .section3{
+            background-color: darkseagreen;
+        }
+        .section4{
+            background-color: skyblue;
+        }
+        .slide{
+            font-size: 16px;
+            text-align: center;
+        }
+
+    </style>
+</head>
+<body>
+
+<div id="fullpage">
+
+    <div class="section section1">
+        <div class="slide">幻灯片1</div>
+        <div class="slide">幻灯片2</div>
+        <div class="slide">幻灯片3</div>
+    </div>
+    <div class="section section2"><h1>第2屏</h1></div>
+    <div class="section section3"><h1>第3屏</h1></div>
+    <div class="section section4"><h1>第4屏</h1></div>
+
+</div>
+
+<script language="javascript">
+    $(function () {
+        $("#fullpage").fullpage({
+//            sectionsColor:[],//设置每一页的颜色
+//            controlArrows:false,
+//            verticalCentered:false,//居中
+//            resize:true,//根据浏览器大小改变大小，一般不用
+//            scrollingSpeed:2000,//滚动速度
+            anchors:['page1','page2','page3','page4'],//锚定位
+//            lockAnchors:true//锁定锚
+            css3:true,//css3方式滚动，更流畅
+//            loopTop:true,//滚到底调到第一页
+//            loopBottom:true,
+//            loopHorizontal:true//幻灯片的双向滚动
+//              autoScrolling:true//滚动条，如果false则按滚动条滚动
+////            scrollBar:true
+//            paddingTop:'100px'//每一页的上内边距
+//            fixedElements:'#header'//固定在窗口中的元素
+            continuousVertical:true,//顺滑切换
+            recordHistory:true,
+
+            navigation:true,  //--小圆点导航
+            navigationPosition:'right',
+            navigationTooltips:['page1','page2','page3','page4'],
+
+            slidesNavigation:true,
+            slidesNavPosition:'bottom'//幻灯片导航位置
+
+//            scrollOverflow:true//要使用/jquery.slimscroll.js插件，当某页内容大于屏幕长度时会在当前页有滚动条
+
+
+        });
+
+    });
+
+
+
+</script>
+
+
+
+</body>
+</html>

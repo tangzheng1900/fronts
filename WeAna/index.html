@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <link rel="stylesheet" type="text/css" href="css/index.css">
+    <script src="js/jquery-2.1.1/jquery.min.js"></script>
 
     <style>
         .center{
@@ -22,10 +23,10 @@
     <div class="page-container" id="nav">
         <div class="logo">logo</div>
         <ul class="nav-item">
-            <li><a href="#">个人分析</a></li>
-            <li><a href="school.html">学校分析</a></li>
-            <li><a href="#">话题发现</a></li>
-            <li><a href="#">数据更新</a></li>
+            <li class="tag active"><a href="#">个人分析</a></li>
+            <li class="tag"><a href="school.html">学校分析</a></li>
+            <li class="tag"><a href="#">话题发现</a></li>
+            <li class="tag"><a href="#">数据更新</a></li>
         </ul>
         <div id="login-area">
             <ul class="nav-item log-item">
@@ -93,6 +94,41 @@
         );
     </script>
 
+
+<div id="dynamic">
+    <h1>动态加载区域</h1>
+
+
+</div>
+
+<script>
+   var tags=document.getElementsByClassName('tag');
+
+  // document.getElementById("header").addEventListener("click", changetag(i));
+   tags[0].onclick=changetag;
+   tags[1].onclick=changetag;
+   tags[2].onclick=changetag;
+   tags[3].onclick=changetag;
+
+
+   function changetag() {
+       for (var i = 0; i < tags.length; i++) {
+           if (tags[i].className == 'tag active') {
+               tags[i].className = 'tag';
+               break;
+           }
+       }
+       this.className = 'tag active';
+
+       $('#dynamic').load("school.html");
+       alert("使用load加载成功");
+
+   }
+
+
+
+
+</script>
 
 <div id="footer"></div>
 
