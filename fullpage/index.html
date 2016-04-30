@@ -10,13 +10,19 @@
     <script src="//cdn.bootcss.com/fullPage.js/2.7.8/vendors/jquery.easings.min.js"></script>
     <script src="//cdn.bootcss.com/fullPage.js/2.7.8/vendors/jquery.slimscroll.js"></script>
 
+
+
     <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
         .section1{
             background-color: orchid;
         }
 
         .section2{
-            background-color: greenyellow;
+            background-color: #43ffc3;
         }
         .section3{
             background-color: darkseagreen;
@@ -40,7 +46,9 @@
         <div class="slide">幻灯片2</div>
         <div class="slide">幻灯片3</div>
     </div>
-    <div class="section section2"><h1>第2屏</h1></div>
+    <div class="section section2"><h1>第2屏</h1>
+    <p>添加一个很长很长的段落做测试</p>
+    </div>
     <div class="section section3"><h1>第3屏</h1></div>
     <div class="section section4"><h1>第4屏</h1></div>
 
@@ -72,10 +80,48 @@
             navigationTooltips:['page1','page2','page3','page4'],
 
             slidesNavigation:true,
-            slidesNavPosition:'bottom'//幻灯片导航位置
+            slidesNavPosition:'bottom',//幻灯片导航位置
 
 //            scrollOverflow:true//要使用/jquery.slimscroll.js插件，当某页内容大于屏幕长度时会在当前页有滚动条
 
+            afterLoad:function (link,index) {
+
+                switch (index){
+                    case 1:
+
+                        break;
+                    case 2:
+                        move('.section2 h1').set('margin-left','30px').end();
+                        move('.section2 p').set('padding-left','100px').end();
+                        break;
+                    case 3:
+                        break;
+                    case 4:
+                        break;
+                    default:
+                        break;
+                }
+
+            },
+            onLeave:function (link,index) {
+
+                switch (index){
+                    case 1:
+
+                        break;
+                    case 2:
+                        move('.section2 h1').scale(1).end();
+                        move('.section2 p').set('margin-left','0px').end();
+                        break;
+                    case 3:
+                        break;
+                    case 4:
+                        break;
+                    default:
+                        break;
+                }
+
+            }
 
         });
 
@@ -85,6 +131,8 @@
 
 </script>
 
+
+<script src="//cdn.bootcss.com/move.js/0.5.0/move.js"></script>
 
 
 </body>
