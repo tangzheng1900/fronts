@@ -18,10 +18,12 @@
             border: 1px solid #ddd;
             background: #fff;
             margin: 40px auto;
+            position: relative;
 
         }
         .box{
             position: relative;
+            z-index: 2;
         }
         .buddy{
             position: absolute;
@@ -63,6 +65,47 @@
             background: #3b50ce;
         }
 
+        .pop{
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            opacity: 0;
+
+        }
+        .close{
+            position: absolute;
+            top:0;
+            right: 10px;
+            color: #999;
+            font-size: 24px;
+            font-family: Helvetica;
+        }
+        .close:hover{
+            color: #111;
+            cursor: pointer;
+        }
+        .pop h3{
+            margin-top: 15px;
+        }
+        .pop span{
+            font-size: 12px;
+            color: #999;
+            display: block;
+            margin-top: 20px;
+            margin-bottom: 30px;
+
+        }
+        .pop img{
+            width: 125px;
+            height: 125px;
+            display: inline-block;
+            margin: 10px;
+
+        }
+
 
 
     </style>
@@ -78,17 +121,146 @@
             <h3>慕课网</h3>
             <span>慕课网，只学有用的</span>
             <div class="btn">查看课程</div>
-
         </div>
     </div>
-
-
+    <div class="pop">
+        <div class="close">&times;</div>
+        <h3>慕课网</h3>
+        <span>慕课网，只学有用的</span>
+        <img src="imgs/pic1.jpg" alt="">
+        <img src="imgs/pic2.jpg" alt="">
+        <img src="imgs/pic3.jpg" alt="">
+        <img src="imgs/pic4.jpg" alt="">
+    </div>
 </div>
 
 
 <script language="JavaScript">
 
+    (function ($) {
 
+        //取出对象
+        var container=$('.container');
+        var box=$(".box");
+        var buddy=$(".buddy");
+        var pop=$(".pop");
+        var open=$(".btn");
+        var close=$(".close");
+        var imgs=pop.find('img');
+
+        //定义动画
+        $.Velocity.RegisterUI('tang.up',{
+            defaultDuration:500,
+            calls:[
+                    [{opacity:[1,0],translateY:[0,100]}]
+            ]
+        });
+        $.Velocity.RegisterUI('tang.out',{
+            defaultDuration:300,
+            calls:[
+                    [{opacity:[0,1],translateY:[100,0]}]
+            ]
+        });
+        $.Velocity.RegisterUI('tang.scale',{
+            defaultDuration:300,
+            calls:[
+                [{opacity:[1,0],scale:[1,0.3]}]
+            ]
+        });
+        $.Velocity.RegisterUI('tang.scaleout',{
+            defaultDuration:300,
+            calls:[
+                [{opacity:[1,0],scale:[0.3,1]}]
+            ]
+        });
+
+
+//定义动画序列
+        var seqInit = [{
+            elements: container,
+            properties: 'tang.up',
+            options: {
+                delay: 300
+            }},
+            {
+                elements: box,
+                properties: 'tang.up',
+                options: {
+                    sequenceQueue:false
+
+
+                }},
+            {
+                elements: buddy,
+                properties: 'tang.up',
+                options: {
+                    sequenceQueue:false
+
+                }
+            }];
+        var seqClick = [{
+            elements: container,
+            properties: 'tang.out'
+            },
+            {
+                elements: box,
+                properties: 'tang.out',
+                options: {
+                    sequenceQueue:false
+                }},
+            {
+                elements: container,
+                properties: 'tang.up'
+
+            },{
+                elements: pop,
+                properties: 'tang.up',
+                options: {
+                    sequenceQueue:false
+                }
+            },{
+                elements: imgs,
+                properties: 'tang.scale'
+            }];
+        var seqClose = [{
+            elements: imgs,
+            properties: 'tang.scaleout'
+        },
+            {
+                elements: container,
+                properties: 'tang.out'
+                },
+            {
+                elements: pop,
+                properties: 'tang.out',
+                options: {
+                    sequenceQueue:false
+                }
+
+            },{
+                elements: container,
+                properties: 'tang.up'
+
+            },{
+                elements: box,
+                properties: 'tang.up',
+                options: {
+                    sequenceQueue:false
+                }
+            }];
+
+        $.Velocity.RunSequence(seqInit);
+        open.on('click',function () {
+            $.Velocity.RunSequence(seqClick);
+
+        });
+        close.on('click',function () {
+
+            $.Velocity.RunSequence(seqClose);
+        });
+
+
+    })(jQuery);
 
 
 </script>
