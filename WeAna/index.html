@@ -7,17 +7,62 @@
     <script src="js/jquery-2.1.1/jquery.min.js"></script>
 
     <style>
-        .center{
-            width: 200px;
-            height: 200px;
-            background: pink;
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            position: relative;
+            width: 100%;
+            height: 1000px;
+        }
+
+        .footer {
+            position: absolute;
+            width: 100%;
+            height: 120px;
+            bottom: 0;
+            background-color: black;
+            opacity: 0.8;
+            margin-top: 10px;
+        }
+
+        .footercontent {
+            padding-top: 10px;
+            width: 800px;
             margin: 0 auto;
         }
+
+        .footercontent li {
+            list-style-type: none;
+            float: left;
+            width: 230px;
+            text-align: center;
+            line-height: 20px;
+        }
+
+        .footercontent a {
+            text-decoration: none;
+            color: whitesmoke;
+            font-size: 18px;
+        }
+
+        .footercontent li ul li a:hover, .footercontent li ul li a:active {
+            color: red;
+        }
+
+        .footercontent li ul li a {
+            font-size: 14px;
+        }
+
+
     </style>
 
 
 </head>
 <body>
+
 
 <div id="header">
     <div class="page-container" id="nav">
@@ -38,6 +83,8 @@
         </div>
     </div>
 </div>
+
+<div class="container">
 
     <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
     <div id="main" style="height:400px;width: 500px"></div>
@@ -66,24 +113,24 @@
                             show: true
                         },
                         legend: {
-                            data:['销量']
+                            data: ['销量']
                         },
-                        xAxis : [
+                        xAxis: [
                             {
-                                type : 'category',
-                                data : ["衬衫","羊毛衫","雪纺衫","裤子","高跟鞋","袜子"]
+                                type: 'category',
+                                data: ["衬衫", "羊毛衫", "雪纺衫", "裤子", "高跟鞋", "袜子"]
                             }
                         ],
-                        yAxis : [
+                        yAxis: [
                             {
-                                type : 'value'
+                                type: 'value'
                             }
                         ],
-                        series : [
+                        series: [
                             {
-                                "name":"销量",
-                                "type":"bar",
-                                "data":[5, 20, 40, 10, 10, 20]
+                                "name": "销量",
+                                "type": "bar",
+                                "data": [5, 20, 40, 10, 10, 20]
                             }
                         ]
                     };
@@ -95,47 +142,69 @@
     </script>
 
 
-<div id="dynamic">
-    <a href="###"></a>
-    <h1>动态加载区域</h1>
+    <div id="dynamic">
+        <a href="###"></a>
+        <h1>动态加载区域</h1>
+    </div>
+
+    <script>
+        var tags = document.getElementsByClassName('tag');
+
+        // document.getElementById("header").addEventListener("click", changetag(i));
+        tags[0].onclick = changetag;
+        tags[1].onclick = changetag;
+        tags[2].onclick = changetag;
+        tags[3].onclick = changetag;
+
+
+        function changetag() {
+            for (var i = 0; i < tags.length; i++) {
+                if (tags[i].className == 'tag active') {
+                    tags[i].className = 'tag';
+                    break;
+                }
+            }
+            this.className = 'tag active';
+
+            $('#dynamic').load("school.html");
+
+
+            alert("使用load加载成功");
+
+        }
+
+
+    </script>
+
+    <div class="footer">
+        <div class="footercontent">
+            <ul>
+                <li><a href="#">第一列</a>
+                    <ul>
+                        <li><a href="">意见反馈</a></li>
+                        <li><a href="">意见反馈</a></li>
+                        <li><a href="">意见反馈</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">第二列</a>
+                    <ul>
+                        <li><a href="">联系我们</a></li>
+                        <li><a href="">联系我们</a></li>
+                        <li><a href="">联系我们</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">第三列</a>
+                    <ul>
+                        <li><a href="">关于我们</a></li>
+                        <li><a href="">关于我们</a></li>
+                        <li><a href="">关于我们</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+
 </div>
-
-<script>
-   var tags=document.getElementsByClassName('tag');
-
-  // document.getElementById("header").addEventListener("click", changetag(i));
-   tags[0].onclick=changetag;
-   tags[1].onclick=changetag;
-   tags[2].onclick=changetag;
-   tags[3].onclick=changetag;
-
-
-   function changetag() {
-       for (var i = 0; i < tags.length; i++) {
-           if (tags[i].className == 'tag active') {
-               tags[i].className = 'tag';
-               break;
-           }
-       }
-       this.className = 'tag active';
-
-       $('#dynamic').load("school.html");
-
-
-       alert("使用load加载成功");
-
-   }
-
-
-</script>
-
-<div id="footer"></div>
-
-
-<div class="center">
-
-</div>
-
 
 
 </body>
