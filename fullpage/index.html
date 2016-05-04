@@ -2,6 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--<meta name="viewport" content="width=device-width, initial-scale=1">-->
     <title>Title</title>
     <!--fullpage所需要引入的资源-->
     <link href="//cdn.bootcss.com/fullPage.js/2.7.8/jquery.fullPage.css" rel="stylesheet">
@@ -22,18 +24,55 @@
         }
 
         .section2{
-            background-color: #43ffc3;
+            position: relative;
+            background:url("imgs/splash-04-Malwarebytes_Photo-Blitz_08-1600.jpg");
         }
         .section3{
-            background-color: darkseagreen;
+            background:url("imgs/Zendesk-sf-splash.jpg");
         }
         .section4{
-            background-color: skyblue;
+            background:url("imgs/Zendesk-London-Photo-Blitz-06-splash02-1600.jpg");
         }
         .slide{
             font-size: 16px;
             text-align: center;
         }
+
+
+        .pagecontent{
+            background-color: black;
+            opacity: 0.5;
+            width: 800px;
+            height: 130px;
+            position: absolute;
+            right: 0;
+            top:100px;
+            font-size: 16px;
+            color: yellow;
+            padding: 30px;
+        }
+
+        .pagecontent li{
+            display: block;
+            position: absolute;
+            bottom: 8px;
+            right: 30px;
+            background-color: red;
+            opacity: 0.8;
+
+
+        }
+        .pagecontent li a{
+            text-decoration: none;
+            font-size: 30px;
+            color: #2a1cff;
+            font-weight: bold;
+        }
+        .pagecontent li a:hover,.pagecontent li a:active{
+            color: white;
+
+        }
+
 
     </style>
 </head>
@@ -41,16 +80,42 @@
 
 <div id="fullpage">
 
-    <div class="section section1">
-        <div class="slide">幻灯片1</div>
-        <div class="slide">幻灯片2</div>
-        <div class="slide">幻灯片3</div>
+    <!--<div class="section section1">-->
+        <!--<div class="slide">幻灯片1</div>-->
+        <!--<div class="slide">幻灯片2</div>-->
+        <!--<div class="slide">幻灯片3</div>-->
+    <!--</div>-->
+    <div class="section section2">
+        <div class="pagecontent">
+            <h1>微博情感分析，你最近的情绪如何，快来测试一下吧</h1>
+            <p>这些都是介绍</p>
+            <ul>
+                <li><a href="#">View More&gt;&gt;</a></li>
+            </ul>
+
+
+        </div>
+
+
     </div>
-    <div class="section section2"><h1>第2屏</h1>
-    <p>添加一个很长很长的段落做测试</p>
+    <div class="section section3">
+        <div class="pagecontent">
+            <h1>第3屏</h1>
+            <p>这些都是介绍</p>
+            <ul>
+                <li><a href="#">View More&gt;&gt;</a></li>
+            </ul>
+        </div>
     </div>
-    <div class="section section3"><h1>第3屏</h1></div>
-    <div class="section section4"><h1>第4屏</h1></div>
+    <div class="section section4">
+        <div class="pagecontent">
+            <h1>第4屏</h1>
+            <p>这些都是介绍</p>
+            <ul>
+                <li><a href="#">View More&gt;&gt;</a></li>
+            </ul>
+        </div>
+    </div>
 
 </div>
 
