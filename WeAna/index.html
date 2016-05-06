@@ -2,209 +2,240 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--<meta name="viewport" content="width=device-width, initial-scale=1">-->
     <title>Title</title>
-    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <!--fullpage所需要引入的资源-->
+    <link href="//cdn.bootcss.com/fullPage.js/2.7.8/jquery.fullPage.css" rel="stylesheet">
     <script src="js/jquery-2.1.1/jquery.min.js"></script>
+    <script src="//cdn.bootcss.com/fullPage.js/2.7.8/jquery.fullPage.js"></script>
+    <script src="//cdn.bootcss.com/fullPage.js/2.7.8/vendors/jquery.easings.min.js"></script>
+    <script src="//cdn.bootcss.com/fullPage.js/2.7.8/vendors/jquery.slimscroll.js"></script>
+
+
 
     <style>
-        * {
+        *{
             margin: 0;
             padding: 0;
         }
-
-        .container {
-            position: relative;
-            width: 100%;
-            height: 1000px;
+        .section1{
+            background-color: orchid;
         }
 
-        .footer {
+        .section2{
+            position: relative;
+            background:url("imgs/splash-04-Malwarebytes_Photo-Blitz_08-1600.jpg");
+        }
+        .section3{
+            background:url("imgs/Zendesk-sf-splash.jpg");
+        }
+        .section4{
+            background:url("imgs/Zendesk-London-Photo-Blitz-06-splash02-1600.jpg");
+        }
+        .slide{
+            font-size: 16px;
+            text-align: center;
+        }
+
+
+        .pagecontent{
+            background-color: black;
+            opacity: 0.5;
+            width: 800px;
+            height: 130px;
             position: absolute;
-            width: 100%;
-            height: 120px;
-            bottom: 0;
+            right: 0;
+            top:100px;
+            font-size: 16px;
+            color: yellow;
+            padding: 30px;
+        }
+
+        .pagecontent li{
+            display: block;
+            position: absolute;
+            bottom: 8px;
+            right: 30px;
+            background-color: red;
+            opacity: 0.8;
+
+
+        }
+        .pagecontent li a{
+            text-decoration: none;
+            font-size: 30px;
+            color: #2a1cff;
+            font-weight: bold;
+        }
+        .pagecontent li a:hover,.pagecontent li a:active{
+            color: white;
+
+        }
+
+        .login{
+            width: 100px;
+            height: 60px;
+            position: fixed;
+            left: 100px;
+            top: 100px;
             background-color: black;
             opacity: 0.8;
-            margin-top: 10px;
+            z-index: 20;
         }
-
-        .footercontent {
-            padding-top: 10px;
-            width: 800px;
-            margin: 0 auto;
-        }
-
-        .footercontent li {
+        .login li{
             list-style-type: none;
+            display: inline-block;
+            margin: 5px 5px;
             float: left;
-            width: 230px;
+            width: 40px;
             text-align: center;
-            line-height: 20px;
+            line-height: 45px;
         }
-
-        .footercontent a {
+        .login li a{
             text-decoration: none;
-            color: whitesmoke;
             font-size: 18px;
+            color: #bbdeff;
+            font-weight: bold;
+        }
+        .login .log{
+            background-color: green;
         }
 
-        .footercontent li ul li a:hover, .footercontent li ul li a:active {
-            color: red;
-        }
-
-        .footercontent li ul li a {
-            font-size: 14px;
-        }
 
 
     </style>
-
-
 </head>
 <body>
 
 
-<div id="header">
-    <div class="page-container" id="nav">
-        <div class="logo">logo</div>
-        <ul class="nav-item">
-            <li class="tag active"><a href="#">个人分析</a></li>
-            <li class="tag"><a href="school.html">学校分析</a></li>
-            <li class="tag"><a href="#">话题发现</a></li>
-            <li class="tag"><a href="#">数据更新</a></li>
-        </ul>
-        <div id="login-area">
-            <ul class="nav-item log-item">
-                <li id="log"><a href="#">登录</a></li>
-                <li><a href="#">注册</a></li>
-
-            </ul>
-
-        </div>
-    </div>
+<div class="login">
+    <ul>
+        <li class="log"><a href="./login/LogIn.html">登录</a></li>
+        <li class="reg"><a href="login1/login.html">注册</a></li>
+    </ul>
 </div>
 
-<div class="container">
+<div id="fullpage">
 
-    <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
-    <div id="main" style="height:400px;width: 500px"></div>
-    <!-- ECharts单文件引入 -->
-    <script src="http://echarts.baidu.com/build/dist/echarts.js"></script>
-    <script type="text/javascript">
-        // 路径配置
-        require.config({
-            paths: {
-                echarts: 'http://echarts.baidu.com/build/dist'
+    <!--<div class="section section1">-->
+        <!--<div class="slide">幻灯片1</div>-->
+        <!--<div class="slide">幻灯片2</div>-->
+        <!--<div class="slide">幻灯片3</div>-->
+    <!--</div>-->
+    <div class="section section2">
+        <div class="pagecontent">
+            <h1>微博情感分析，你最近的情绪如何，快来测试一下吧</h1>
+            <p>这些都是介绍</p>
+            <ul>
+                <li><a href="#">View More&gt;&gt;</a></li>
+            </ul>
+
+
+        </div>
+
+
+    </div>
+    <div class="section section3">
+        <div class="pagecontent">
+            <h1>第3屏</h1>
+            <p>这些都是介绍</p>
+            <ul>
+                <li><a href="#">View More&gt;&gt;</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="section section4">
+        <div class="pagecontent">
+            <h1>第4屏</h1>
+            <p>这些都是介绍</p>
+            <ul>
+                <li><a href="#">View More&gt;&gt;</a></li>
+            </ul>
+        </div>
+    </div>
+
+</div>
+
+<script language="javascript">
+    $(function () {
+        $("#fullpage").fullpage({
+//            sectionsColor:[],//设置每一页的颜色
+//            controlArrows:false,
+//            verticalCentered:false,//居中
+//            resize:true,//根据浏览器大小改变大小，一般不用
+//            scrollingSpeed:2000,//滚动速度
+            anchors:['page1','page2','page3','page4'],//锚定位
+//            lockAnchors:true//锁定锚
+            css3:true,//css3方式滚动，更流畅
+//            loopTop:true,//滚到底调到第一页
+//            loopBottom:true,
+//            loopHorizontal:true//幻灯片的双向滚动
+//              autoScrolling:true//滚动条，如果false则按滚动条滚动
+////            scrollBar:true
+//            paddingTop:'100px'//每一页的上内边距
+//            fixedElements:'#header'//固定在窗口中的元素
+            continuousVertical:true,//顺滑切换
+            recordHistory:true,
+
+            navigation:true,  //--小圆点导航
+            navigationPosition:'right',
+            navigationTooltips:['page1','page2','page3','page4'],
+
+            slidesNavigation:true,
+            slidesNavPosition:'bottom',//幻灯片导航位置
+
+//            scrollOverflow:true//要使用/jquery.slimscroll.js插件，当某页内容大于屏幕长度时会在当前页有滚动条
+
+            afterLoad:function (link,index) {
+
+                switch (index){
+                    case 1:
+
+                        break;
+                    case 2:
+                        move('.section2 h1').set('margin-left','30px').end();
+                        move('.section2 p').set('padding-left','100px').end();
+                        break;
+                    case 3:
+                        break;
+                    case 4:
+                        break;
+                    default:
+                        break;
+                }
+
+            },
+            onLeave:function (link,index) {
+
+                switch (index){
+                    case 1:
+
+                        break;
+                    case 2:
+                        move('.section2 h1').scale(1).end();
+                        move('.section2 p').set('margin-left','0px').end();
+                        break;
+                    case 3:
+                        break;
+                    case 4:
+                        break;
+                    default:
+                        break;
+                }
+
             }
+
         });
 
-        // 使用
-        require(
-                [
-                    'echarts',
-                    'echarts/chart/bar' // 使用柱状图就加载bar模块，按需加载
-                ],
-                function (ec) {
-                    // 基于准备好的dom，初始化echarts图表
-                    var myChart = ec.init(document.getElementById('main'));
-
-                    var option = {
-                        tooltip: {
-                            show: true
-                        },
-                        legend: {
-                            data: ['销量']
-                        },
-                        xAxis: [
-                            {
-                                type: 'category',
-                                data: ["衬衫", "羊毛衫", "雪纺衫", "裤子", "高跟鞋", "袜子"]
-                            }
-                        ],
-                        yAxis: [
-                            {
-                                type: 'value'
-                            }
-                        ],
-                        series: [
-                            {
-                                "name": "销量",
-                                "type": "bar",
-                                "data": [5, 20, 40, 10, 10, 20]
-                            }
-                        ]
-                    };
-
-                    // 为echarts对象加载数据
-                    myChart.setOption(option);
-                }
-        );
-    </script>
+    });
 
 
-    <div id="dynamic">
-        <a href="###"></a>
-        <h1>动态加载区域</h1>
-    </div>
 
-    <script>
-        var tags = document.getElementsByClassName('tag');
-
-        // document.getElementById("header").addEventListener("click", changetag(i));
-        tags[0].onclick = changetag;
-        tags[1].onclick = changetag;
-        tags[2].onclick = changetag;
-        tags[3].onclick = changetag;
+</script>
 
 
-        function changetag() {
-            for (var i = 0; i < tags.length; i++) {
-                if (tags[i].className == 'tag active') {
-                    tags[i].className = 'tag';
-                    break;
-                }
-            }
-            this.className = 'tag active';
-
-            $('#dynamic').load("school.html");
-
-
-            alert("使用load加载成功");
-
-        }
-
-
-    </script>
-
-    <div class="footer">
-        <div class="footercontent">
-            <ul>
-                <li><a href="#">第一列</a>
-                    <ul>
-                        <li><a href="">意见反馈</a></li>
-                        <li><a href="">意见反馈</a></li>
-                        <li><a href="">意见反馈</a></li>
-                    </ul>
-                </li>
-                <li><a href="#">第二列</a>
-                    <ul>
-                        <li><a href="">联系我们</a></li>
-                        <li><a href="">联系我们</a></li>
-                        <li><a href="">联系我们</a></li>
-                    </ul>
-                </li>
-                <li><a href="#">第三列</a>
-                    <ul>
-                        <li><a href="">关于我们</a></li>
-                        <li><a href="">关于我们</a></li>
-                        <li><a href="">关于我们</a></li>
-                    </ul>
-                </li>
-            </ul>
-        </div>
-    </div>
-
-</div>
+<script src="//cdn.bootcss.com/move.js/0.5.0/move.js"></script>
 
 
 </body>

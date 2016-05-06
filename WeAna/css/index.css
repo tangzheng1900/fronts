@@ -24,7 +24,7 @@ div{
     width: 180px;
     height: 60px;
     display: inline-block;
-    background: url("../img/logo.png") no-repeat center;
+    background: url("../imgs/img/logo.png") no-repeat center;
     float: left;
 }
 

@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Velocity</title>
+    <script src="../js/jquery-2.1.1/jquery.js"></script>
+    <script src="//cdn.bootcss.com/velocity/1.2.3/velocity.js"></script>
+    <script src="//cdn.bootcss.com/velocity/1.2.3/velocity.ui.js"></script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        .container{
+            width: 320px;
+            height: 430px;
+            border: 1px solid #ddd;
+            background: #fff;
+            margin: 40px auto;
+            position: relative;
+
+        }
+        .box{
+            position: relative;
+            z-index: 2;
+        }
+        .buddy{
+            position: absolute;
+            width: 96px;
+            height: 96px;
+            left: 50%;
+            top:213px;
+            border-radius:50% ;
+            margin-left: -48px;
+            margin-top: -48px;
+        }
+
+        .inner{
+            margin-top: 66px;
+            text-align: center;
+        }
+        .inner span{
+            font-size: 14px;
+            color: #b4b4b4;
+            display: inline-block;
+            margin-top: 5px;
+
+
+
+        }
+        .btn{
+            width: 90%;
+            height: 45px;
+            line-height: 45px;
+            margin-top: 45px;
+            background: #5677fc;
+            color: #fff;
+            border-radius: 3px;
+            display: inline-block;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        .btn:hover{
+            background: #3b50ce;
+        }
+
+        .pop{
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            opacity: 0;
+
+        }
+        .close{
+            position: absolute;
+            top:0;
+            right: 10px;
+            color: #999;
+            font-size: 24px;
+            font-family: Helvetica;
+        }
+        .close:hover{
+            color: #111;
+            cursor: pointer;
+        }
+        .pop h3{
+            margin-top: 15px;
+        }
+        .pop span{
+            font-size: 12px;
+            color: #999;
+            display: block;
+            margin-top: 20px;
+            margin-bottom: 30px;
+
+        }
+        .pop img{
+            width: 125px;
+            height: 125px;
+            display: inline-block;
+            margin: 10px;
+
+        }
+
+
+
+    </style>
+
+</head>
+<body>
+
+<div class="container">
+    <div class="box">
+        <img src="imgs/back.jpg" alt="">
+        <img class="buddy" src="imgs/head.jpg" alt="">
+        <div class="inner">
+            <h3>慕课网</h3>
+            <span>慕课网，只学有用的</span>
+            <div class="btn">查看课程</div>
+        </div>
+    </div>
+    <div class="pop">
+        <div class="close">&times;</div>
+        <h3>慕课网</h3>
+        <span>慕课网，只学有用的</span>
+        <img src="imgs/pic1.jpg" alt="">
+        <img src="imgs/pic2.jpg" alt="">
+        <img src="imgs/pic3.jpg" alt="">
+        <img src="imgs/pic4.jpg" alt="">
+    </div>
+</div>
+
+
+<script language="JavaScript">
+
+    (function ($) {
+
+        //取出对象
+        var container=$('.container');
+        var box=$(".box");
+        var buddy=$(".buddy");
+        var pop=$(".pop");
+        var open=$(".btn");
+        var close=$(".close");
+        var imgs=pop.find('img');
+
+        //定义动画
+        $.Velocity.RegisterUI('tang.up',{
+            defaultDuration:500,
+            calls:[
+                    [{opacity:[1,0],translateY:[0,100]}]
+            ]
+        });
+        $.Velocity.RegisterUI('tang.out',{
+            defaultDuration:300,
+            calls:[
+                    [{opacity:[0,1],translateY:[100,0]}]
+            ]
+        });
+        $.Velocity.RegisterUI('tang.scale',{
+            defaultDuration:300,
+            calls:[
+                [{opacity:[1,0],scale:[1,0.3]}]
+            ]
+        });
+        $.Velocity.RegisterUI('tang.scaleout',{
+            defaultDuration:300,
+            calls:[
+                [{opacity:[1,0],scale:[0.3,1]}]
+            ]
+        });
+
+
+//定义动画序列
+        var seqInit = [{
+            elements: container,
+            properties: 'tang.up',
+            options: {
+                delay: 300
+            }},
+            {
+                elements: box,
+                properties: 'tang.up',
+                options: {
+                    sequenceQueue:false
+
+
+                }},
+            {
+                elements: buddy,
+                properties: 'tang.up',
+                options: {
+                    sequenceQueue:false
+
+                }
+            }];
+        var seqClick = [{
+            elements: container,
+            properties: 'tang.out'
+            },
+            {
+                elements: box,
+                properties: 'tang.out',
+                options: {
+                    sequenceQueue:false
+                }},
+            {
+                elements: container,
+                properties: 'tang.up'
+
+            },{
+                elements: pop,
+                properties: 'tang.up',
+                options: {
+                    sequenceQueue:false
+                }
+            },{
+                elements: imgs,
+                properties: 'tang.scale'
+            }];
+        var seqClose = [{
+            elements: imgs,
+            properties: 'tang.scaleout'
+        },
+            {
+                elements: container,
+                properties: 'tang.out'
+                },
+            {
+                elements: pop,
+                properties: 'tang.out',
+                options: {
+                    sequenceQueue:false
+                }
+
+            },{
+                elements: container,
+                properties: 'tang.up'
+
+            },{
+                elements: box,
+                properties: 'tang.up',
+                options: {
+                    sequenceQueue:false
+                }
+            }];
+
+        $.Velocity.RunSequence(seqInit);
+        open.on('click',function () {
+            $.Velocity.RunSequence(seqClick);
+
+        });
+        close.on('click',function () {
+
+            $.Velocity.RunSequence(seqClose);
+        });
+
+
+    })(jQuery);
+
+
+</script>
+
+</body>
+</html>
