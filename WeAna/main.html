@@ -165,12 +165,15 @@
 
         // document.getElementById("header").addEventListener("click", changetag(i));
         tags[0].onclick = changetag;
-        tags[1].onclick = changetag;
+        tags[1].onclick = changetag("school.html");
         tags[2].onclick = changetag;
-        tags[3].onclick = changetag;
+        tags[3].onclick = function () {
+            window.open("data.html");
+
+        };
 
 
-        function changetag() {
+        function changetag(url) {
             for (var i = 0; i < tags.length; i++) {
                 if (tags[i].className == 'tag active') {
                     tags[i].className = 'tag';
@@ -179,7 +182,7 @@
             }
             this.className = 'tag active';
 
-            $('#dynamic').load("school.html");
+            $('#dynamic').load(url);
 
 
             alert("使用load加载成功");
