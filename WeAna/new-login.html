@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<!-- saved from url=(0035)https://segmentfault.com/user/login -->
+<html lang="zh-CN"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta property="qc:admins" content="15317273575564615446375">
+    <!--<meta property="og:image" content="https://sf-static.b0.upaiyun.com/v-5732db60/global/img/touch-icon.png">-->
+            <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+        <meta name="alexaVerifyID" content="LkzCRJ7rPEUwt6fVey2vhxiw1vQ">
+    <meta name="apple-itunes-app" content="app-id=958101793, app-argument=">
+    <title>Login</title>
+        <meta name="description" content="SegmentFault ( www.sf.gg ) 是中国领先的开发者技术社区。 我们希望为编程爱好者提供一个纯粹、高质的技术交流的平台， 与开发者一起学习、交流与成长，创造属于开发者的时代！">
+        
+            <meta name="keywords" content="SegmentFault,黑客马拉松,IT技术社区,编程社区,技术问答,技术文章,技术笔记,技术活动,程序员招聘,开发者,程序员,极客,编程,代码,开源,hackathon">    
+        
+    <link rel="search" type="application/opensearchdescription+xml" href="https://segmentfault.com/opensearch.xml" title="SegmentFault">
+    <!--<link rel="shortcut icon" href="https://sf-static.b0.upaiyun.com/v-5732db60/global/img/favicon.ico">-->
+    <link rel="apple-touch-icon" href="https://sf-static.b0.upaiyun.com/v-5732db60/global/img/touch-icon.png">
+
+    <meta name="msapplication-TileColor" content="#009a61">
+    <meta name="msapplication-square150x150logo" content="https://sf-static.b0.upaiyun.com/v-5732db60/global/img/touch-icon.png">
+
+    
+    <link rel="alternate" type="application/atom+xml" title="SegmentFault 最新问题" href="https://segmentfault.com/feeds/questions">
+    <link rel="alternate" type="application/atom+xml" title="SegmentFault 最新文章" href="https://segmentfault.com/feeds/blogs">
+    
+    
+    
+    
+    
+            <link rel="stylesheet" href="./new-login_files/global.css">
+                <link rel="stylesheet" href="./new-login_files/user.css">
+                <link rel="stylesheet" href="./new-login_files/responsive.css">
+    
+    
+    <!--[if lt IE 9]>
+    <link rel="stylesheet" href="https://sf-static.b0.upaiyun.com/v-5732db60/global/css/ie.css"/>
+    <script src="https://sf-static.b0.upaiyun.com/v-5732db60/global/script/html5shiv.js"></script>
+    <script src="https://sf-static.b0.upaiyun.com/v-5732db60/global/script/respond.js"></script>
+    <![endif]-->
+
+    <script src="./new-login_files/hm.js"></script><script async="" src="./new-login_files/analytics.js"></script><script src="./new-login_files/debug.js"></script>
+
+</head>
+
+<body data-mod="user" class="user-login
+">
+<!--[if lt IE 9]>
+<div class="alert alert-danger topframe" role="alert">你的浏览器实在<strong>太太太太太太旧了</strong>，放学别走，升级完浏览器再说 <a target="_blank" class="alert-link" href="http://browsehappy.com">立即升级</a>
+</div>
+<![endif]-->
+<img id="icon4weChat" style="height: 0;width: 0;" data-src="https://sf-static.b0.upaiyun.com/v-5732db60/global/img/touch-icon-512.png">
+
+<div class="container">
+    <div class="header text-center">
+    <h1>
+
+    </h1>
+        <p class="description text-muted">欢迎加入我们</p>
+    </div>
+        <div class="row bg-white login">
+        <div class="col-md-4 col-sm-12 col-md-push-7 login-wrap">
+                <h1 class="h4 text-muted login-title mb30">用户登录</h1>
+            <form action="https://segmentfault.com/api/user/login" method="POST" role="form" class="mt30">
+                <div class="form-group">
+                    <label for="mail" class="control-label">Email</label>
+                    <input type="email" class="form-control" name="mail" required="" placeholder="hello@segmentfault.com">
+                </div>
+                <div class="form-group">
+                    <label for="password" class="control-label">密码</label>
+                    <input type="password" class="form-control" name="password" required="" placeholder="密码">
+                </div>
+                <div class="form-group clearfix">
+                    <div class="checkbox pull-left">
+                        <label><input name="remember" type="checkbox" value="1" checked=""> 记住登录状态</label>
+                    </div>
+                    <button type="submit" class="btn btn-primary pull-right pl20 pr20">登录</button>
+                    <button type="submit" class="btn btn-primary pull-right pl20 pr20"><a href="./main.html" style="text-decoration: none;
+                    color: whitesmoke">进入&gt;&gt;</a></button>
+                </div>
+            </form>
+            <p class="h4 text-muted visible-xs-block mb30 hidden-xs">快速登录</p>
+            <div class="widget-login mt30">
+                <p class="text-muted mt5 mr10 pull-left hidden-xs">快速登录</p>
+                <a href="https://segmentfault.com/user/oauth/weixin" class="btn pl5 pr5 mb5 btn-default btn-sm btn-sn-weixin visible-xs hidden"><span class="icon-sn-bg-weixin"></span><strong class="visible-xs-inline">微信账号</strong></a>
+                <a href="https://segmentfault.com/user/oauth/google" class="btn pl5 pr5 mb5 btn-default btn-sm btn-sn-google visible-xs"><span class="icon-sn-bg-google"></span><strong class="visible-xs-inline">Google 账号</strong></a>
+                <a href="https://segmentfault.com/user/oauth/google" class="btn pl5 pr5 mb5 btn-default btn-sm btn-sn-google hidden-xs"><span class="icon-sn-bg-google"></span><strong class="visible-xs-inline">Google 账号</strong></a>
+                <a href="https://segmentfault.com/user/oauth/github" class="btn pl5 pr5 mb5 btn-default btn-sm btn-sn-github hidden-xs"><span class="icon-sn-bg-github"></span><strong class="visible-xs-inline">Github 账号</strong></a>
+                <a href="https://segmentfault.com/user/oauth/github" class="btn pl5 pr5 mb5 btn-default btn-sm btn-sn-github visible-xs"><span class="icon-sn-bg-github"></span><strong class="visible-xs-inline">Github 账号</strong></a>
+                <a href="https://segmentfault.com/user/oauth/weibo" class="btn pl5 pr5 mb5 btn-default btn-sm btn-sn-weibo hidden-xs"><span class="icon-sn-bg-weibo"></span><strong class="visible-xs-inline">新浪微博账号</strong></a>
+                <a href="https://segmentfault.com/user/oauth/qq" class="btn pl5 pr5 mb5 btn-default btn-sm btn-sn-qq visible-xs"><span class="icon-sn-bg-qq"></span><strong class="visible-xs-inline">QQ 账号</strong></a>
+                <a href="https://segmentfault.com/user/oauth/qq" class="btn pl5 pr5 mb5 btn-default btn-sm btn-sn-qq hidden-xs"><span class="icon-sn-bg-qq"></span><strong class="visible-xs-inline">QQ 账号</strong></a>
+                <a href="https://segmentfault.com/user/oauth/weixin" class="btn pl5 pr5 mb5 btn-default btn-sm btn-sn-weixin hidden-xs"><span class="icon-sn-bg-weixin"></span><strong class="visible-xs-inline">微信账号</strong></a>
+                <a id="showMore" href="javascript:;" class="btn pl5 pr5 mb5 btn-default btn-sm btn-sn-dotted"><span class="icon-sn-bg-dotted"></span><strong class="visible-xs-inline">•••</strong></a>
+
+                <a href="https://segmentfault.com/user/oauth/twitter" class="btn pl5 pr5 mb5 btn-default btn-sn-twitter btn-sm hidden"><span class="icon-sn-bg-twitter"></span></a>
+                <a href="https://segmentfault.com/user/oauth/facebook" class="btn pl5 pr5 mb5 btn-default btn-sn-facebook btn-sm hidden"><span class="icon-sn-bg-facebook"></span></a>
+                <a href="https://segmentfault.com/user/oauth/douban" class="btn pl5 pr5 mb5 btn-default btn-sn-douban btn-sm hidden"><span class="icon-sn-bg-douban"></span></a>
+            </div>
+        </div>
+                <div class="login-vline hidden-sm hidden-xs"></div>
+        <div class="col-md-4 col-md-pull-3 col-sm-12 login-wrap">
+            <h1 class="h4 text-muted login-title mb30">创建新账号</h1>
+            <form action="https://segmentfault.com/api/user/register" method="POST" role="form" class="mt30">
+                <div class="form-group">
+                    <label for="name" class="control-label">用户名</label>
+                    <input type="text" class="form-control" name="name" required="" placeholder="字母、数字等，用户名唯一">
+                </div>
+                <div class="form-group">
+                    <label for="mail" class="control-label">Email</label>
+                    <input type="email" class="form-control" name="mail" required="" placeholder="hello@segmentfault.com">
+                </div>
+                <div class="form-group">
+                    <label for="password" class="control-label">密码</label>
+                    <input type="password" class="form-control" name="password" required="" placeholder="不少于 6 位">
+                </div>
+                <div class="form-group" style="display:none;">
+                    <label class="required control-label" for="captcha">验证码</label>
+                    <input type="text" class="form-control" id="loginCaptcha" name="captcha" placeholder="请输入下方的验证码">
+                    <div class="mt10"><a id="reloadCaptcha" href="javascript:void(0)"><img class="captcha" src="./new-login_files/captcha" width="240" height="50"></a></div>
+                </div>
+                <div class="form-group clearfix">
+                    <div class="checkbox pull-left">
+                        同意并接受<a href="https://segmentfault.com/tos" target="_blank">《服务条款》</a>
+                    </div>
+                    <button type="submit" class="btn btn-primary pl20 pr20 pull-right">注册</button>
+                </div>
+            </form>
+        </div>
+    </div>
+            <div class="text-center col-md-12 login-link">
+        <a href="https://segmentfault.com/user/forgot">找回密码</a>
+                |
+        <a href="https://segmentfault.com/">首页</a>
+                |
+        <a href="https://segmentfault.com/user/register">创建新账号</a>
+    </div>
+</div>
+
+<script id="loginModal" type="text/template">
+<div class="row bg-white login-modal">
+    <div class="col-md-4 col-sm-12 col-md-push-7 login-wrap">
+        <h1 class="h4 text-muted login-title">用户登录</h1>
+        <form action="/api/user/login" method="POST" role="form" class="mt30">
+            <div class="form-group">
+                <label class="control-label">Email</label>
+                <input type="email" class="form-control" name="mail" required placeholder="hello@segmentfault.com">
+            </div>
+            <div class="form-group">
+                <label class="control-label">密码</label>
+                <input type="password" class="form-control" name="password" required placeholder="密码">
+            </div>
+            <div class="form-group clearfix">
+                <div class="checkbox pull-left">
+                    <label><input name="remember" type="checkbox" value="1" checked> 记住登录状态</label>
+                </div>
+                <button type="submit" class="btn btn-primary pull-right pl20 pr20" onclick='ga("send", "event", "email login button", "clicked", "login modal");'>登录</button>
+            </div>
+        </form>
+        <p class="h4 text-muted visible-xs-block h4">快速登录</p>
+        <div class="widget-login mt30">
+            <p class="text-muted mt5 mr10 pull-left hidden-xs">快速登录</p>
+            <a href="/user/oauth/google" class="btn btn-default btn-sm btn-sn-google" onclick='ga("send", "event", "3rd login button", "clicked", "login modal", {media: "google"});'><span class="icon-sn-bg-google"></span> <strong class="visible-xs-inline">Google 账号</strong></a>
+            <a href="/user/oauth/github" class="btn btn-default btn-sm btn-sn-github" onclick='ga("send", "event", "3rd login button", "clicked", "login modal", {media: "github"});");'><span class="icon-sn-bg-github"></span> <strong class="visible-xs-inline">Github 账号</strong></a>
+            <a href="/user/oauth/weibo" class="btn btn-default btn-sm btn-sn-weibo" onclick='ga("send", "event", "3rd login button", "clicked", "login modal", {media: "weibo"});'><span class="icon-sn-bg-weibo"></span> <strong class="visible-xs-inline">新浪微博账号</strong></a>
+            <a href="/user/oauth/qq" class="btn btn-default btn-sm btn-sn-qq" onclick='ga("send", "event", "3rd login button", "clicked", "login modal", {media: "qq"});'><span class="icon-sn-bg-qq"></span> <strong class="visible-xs-inline">QQ 账号</strong></a>
+            <a href="/user/oauth/weixin" class="btn btn-default btn-sm btn-sn-weixin" onclick='ga("send", "event", "3rd login button", "clicked", "login modal", {media: "qq"});'><span class="icon-sn-bg-weixin"></span> <strong class="visible-xs-inline">微信账号</strong></a>
+            <button id="loginShowMore" href="javascript:void(0);" class="btn mb5 btn-default btn-sm btn-sn-dotted"><span class="icon-sn-bg-dotted"></span><strong class="visible-xs-inline">•••</strong></button>
+            <a href="/user/oauth/twitter" class="btn btn-default btn-sn-twitter btn-sm hidden" onclick='ga("send", "event", "3rd login button", "clicked", "login modal", {media: "twitter"});'><span class="icon-sn-bg-twitter"></span> <strong class="visible-xs-inline">Twitter 账号</strong></a>
+            <a href="/user/oauth/facebook" class="btn btn-default btn-sn-facebook btn-sm hidden" onclick='ga("send", "event", "3rd login button", "clicked", "login modal", {media: "facebook"});'><span class="icon-sn-bg-facebook"></span> <strong class="visible-xs-inline">Facebook 账号</strong></a>
+            <a href="/user/oauth/douban" class="btn btn-default btn-sn-douban btn-sm hidden" onclick='ga("send", "event", "3rd login button", "clicked", "login modal", {media: "douban"});'><span class="icon-sn-bg-douban"></span> <strong class="visible-xs-inline">豆瓣账号</strong></a>
+        </div>
+    </div>
+    <div class="login-vline hidden-xs hidden-sm"></div>
+    <div class="col-md-4 col-md-pull-3 col-sm-12 login-wrap">
+        <h1 class="h4 text-muted login-title">创建新账号</h1>
+        <form action="/api/user/register" method="POST" role="form" class="mt30">
+            <div class="form-group">
+                <label for="name" class="control-label">用户名</label>
+                <input type="text" class="form-control" name="name" required placeholder="字母、数字等，用户名唯一">
+            </div>
+            <div class="form-group">
+                <label for="mail" class="control-label">Email</label>
+                <input type="hidden" style="display:none" name="mail">
+                <input type="email" autocomplete="off" class="form-control register-mail" name="mail" required placeholder="hello@segmentfault.com">
+            </div>
+            <div class="form-group">
+                <label for="password" class="control-label">密码</label>
+                <input type="password" class="form-control" name="password" required placeholder="不少于 6 位">
+            </div>
+            <div class="form-group" style="display:none;">
+                <label class="required control-label">验证码</label>
+                <input type="text" class="form-control" id="captcha" name="captcha" placeholder="请输入下方的验证码">
+                <div class="mt10"><a id="loginReloadCaptcha"  href="javascript:void(0)"><img data-src="/user/captcha?w=240&h=50" class="captcha" width="240" height="50" /></a></div>
+            </div>
+            <div class="form-group clearfix">
+                <div class="checkbox pull-left">
+                    同意并接受<a href="/tos" target="_blank">《服务条款》</a>
+                </div>
+                <button type="submit" class="btn btn-primary pl20 pr20 pull-right" onclick='ga("send", "event", "email register button", "clicked", "login modal");'>注册</button>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="text-center text-muted mt30">
+    <a href="/user/forgot" class="ml5">找回密码</a>
+</div>
+</script>
+
+
+
+<script>
+    (function (w) {
+        w.SF = {
+            staticUrl: "https://sf-static.b0.upaiyun.com/v-5732db60"
+        };
+        w.SF.token = (function () {
+    var _wWLGX = //'VS'
+'3'+//'L'
+'ecc'+//'t'
+'8e'+'eZ'//'eZ'
++//'h'
+'b93'+'49'//'y'
++//'pis'
+'029'+//'G'
+'464'+/* 'A'//'A' */''+'5d4'//'KmU'
++'0'//'wAb'
++'F'//'F'
++'d'//'kN'
++/* '3W'//'3W' */''+'D7'//'D7'
++//'D'
+'D'+'56b'//'668'
++//'k'
+'6'+'268'//'A'
++'6'//'c'
++//'y'
+'a8', _6T4 = [[6,8],[21,22],[22,24],[22,23]];
+
+    for (var i = 0; i < _6T4.length; i ++) {
+        _wWLGX = _wWLGX.substring(0, _6T4[i][0]) + _wWLGX.substring(_6T4[i][1]);
+    }
+
+    return _wWLGX;
+})();;
+    })(window);
+
+                var lock = {
+        type : "",
+        text : '',
+        table: {"ban_post":[1,"\u4f60\u5df2\u7ecf\u88ab\u7981\u8a00, \u65e0\u6cd5\u8fdb\u884c\u6b64\u64cd\u4f5c, \u5982\u6709\u7591\u4e49\u8bf7\u63d0\u4ea4\u7533\u8bc9, \u6216\u8005\u53d1\u90ae\u4ef6\u5230pr@segmentfault.com"]}
+    };
+</script>
+
+    <script crossorigin="" src="./new-login_files/assets.js"></script>
+    <script crossorigin="" src="./new-login_files/login.min.js"></script>
+
+<script async="" src="./new-login_files/asyncjs.php"></script>
+
+<script>
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-918487-8']);
+    _gaq.push(['_trackPageview']);
+    (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function () {
+                    (i[r].q = i[r].q || []).push(arguments)
+                }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src   = g;
+        m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+            
+    
+
+    
+
+    ga('create', 'UA-918487-8', 'auto', { 'userID': 0, 'createdTime': 0, 'now': 1463069170 });
+    ga('set', 'dimension1', 'guest' );
+    ga('send', 'pageview');
+
+</script>
+
+<script>
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.src = "//hm.baidu.com/hm.js?e23800c454aa573c0ccb16b52665ac26";
+        var s  = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+
+</body></html>

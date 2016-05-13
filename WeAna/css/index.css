@@ -23,6 +23,7 @@ div{
 .logo{
     width: 180px;
     height: 60px;
+    background-color: orange;
     display: inline-block;
     background: url("../imgs/img/logo.png") no-repeat center;
     float: left;
