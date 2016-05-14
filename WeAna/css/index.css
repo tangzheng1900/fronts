@@ -61,8 +61,8 @@ div{
 
 }
 #login-area{
-    width: 150px;
-    height: 60px;
+    width: 220px;
+    height: 50px;
     display: inline-block;
     float: right;
 }
@@ -74,5 +74,69 @@ div{
 #log a:hover,#log a:active{
     color: white;
     background-color: red;
+
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    display: block;
+    position: relative;
+    width: 100%;
+    min-height: 1150px;
+}
+
+.footer {
+    position: absolute;
+    width: 100%;
+    height: 150px;
+    bottom: 0;
+    background-color: black;
+    opacity: 0.8;
+    margin-top: 10px;
+}
+
+.footercontent {
+    width: 800px;
+    padding-top: 10px;
+    margin: 0 auto;
+}
+
+.footercontent li {
+    list-style-type: none;
+    float: left;
+    width: 230px;
+    text-align: center;
+    line-height: 20px;
+}
+
+.footercontent a {
+    text-decoration: none;
+    color: whitesmoke;
+    font-size: 18px;
+}
+
+.footercontent li ul li a:hover, .footercontent li ul li a:active {
+    color: red;
+}
+
+.footercontent li ul li a {
+    font-size: 14px;
+}
+.copyright{
+    width: 100%;
+    height: 40px;
+    margin-top: 5px;
+    text-align: center;
+    position: absolute;
+    bottom: 3px;
+    line-height: 40px;
+    font-size: 16px;
+    font-family: "Times New Roman";
+    color: whitesmoke;
 
 }

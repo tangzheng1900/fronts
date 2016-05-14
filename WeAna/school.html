@@ -2,17 +2,236 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Main</title>
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <script src="js/jquery-2.1.1/jquery.min.js"></script>
+
+    <style>
+
+
+        #main2{
+            position: absolute;
+            top:0;
+            right: 0;
+        }
+
+    </style>
+
+
 </head>
 <body>
 
 
-<div class="school">
+<div id="header">
+    <div class="page-container" id="nav">
+        <div class="logo">logo</div>
+        <ul class="nav-item">
+            <li class="tag"><a href="./main.html">个人分析</a></li>
+            <li class="tag active"><a href="#">学校分析</a></li>
+            <li class="tag"><a href="./topic.html">话题发现</a></li>
+            <li class="tag"><a href="./data.html">数据更新</a></li>
+        </ul>
+        <div id="login-area">
+            <ul class="nav-item log-item">
+                <li><a href="./index.html">首页</a></li>
+                <li id="log"><a href="./new-login.html">登录</a></li>
+                <li><a href="./new-login.html">注册</a></li>
 
-    这是学校分析页面的内容
+            </ul>
 
+        </div>
+    </div>
 </div>
 
+<div class="container">
+
+
+
+
+
+    <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+    <div id="main" style="height:400px;width: 500px"></div>
+    <div id="main2" style="height:400px;width: 600px;float: left"></div>
+    <!-- ECharts单文件引入 -->
+    <script src="http://echarts.baidu.com/build/dist/echarts.js"></script>
+    <script type="text/javascript">
+        // 路径配置
+        require.config({
+            paths: {
+                echarts: 'http://echarts.baidu.com/build/dist'
+            }
+        });
+
+        // 使用
+        require(
+                [
+                    'echarts',
+                    'echarts/chart/bar' // 使用柱状图就加载bar模块，按需加载
+                ],
+                function (ec) {
+                    // 基于准备好的dom，初始化echarts图表
+                    var myChart = ec.init(document.getElementById('main'));
+
+                    var option = {
+                        tooltip: {
+                            show: true
+                        },
+                        legend: {
+                            data: ['情绪']
+                        },
+                        xAxis: [
+                            {
+                                type: 'category',
+                                data: ["高兴", "惊讶", "低落", "伤心", "可恶", "喜欢"]
+                            }
+                        ],
+                        yAxis: [
+                            {
+                                type: 'value'
+                            }
+                        ],
+                        series: [
+                            {
+                                "name": "情绪",
+                                "type": "bar",
+                                "data": [5, 20, 40, 10, 10, 20]
+                            }
+                        ]
+                    };
+
+                    // 为echarts对象加载数据
+                    myChart.setOption(option);
+                }
+        );
+    </script>
+
+    <script type="text/javascript">
+        // 路径配置
+        require.config({
+            paths: {
+                echarts: 'http://echarts.baidu.com/build/dist'
+            }
+        });
+
+        // 使用
+        require(
+                [
+                    'echarts',
+                    'echarts/chart/line' // 使用柱状图就加载bar模块，按需加载
+                ],
+                function (ec) {
+                    // 基于准备好的dom，初始化echarts图表
+                    var myChart = ec.init(document.getElementById('main2'));
+
+                    var option2 = {
+                        title : {
+                            text: '情绪起伏图',
+                            subtext: '纯属虚构'
+                        },
+                        tooltip : {
+                            trigger: 'axis'
+                        },
+                        legend: {
+                            data:['最好','最坏']
+                        },
+                        toolbox: {
+                            show : true,
+                            feature : {
+                                mark : {show: true},
+                                dataView : {show: true, readOnly: false},
+                                magicType : {show: true, type: ['line', 'bar']},
+                                restore : {show: true},
+                                saveAsImage : {show: true}
+                            }
+                        },
+                        calculable : true,
+                        xAxis : [
+                            {
+                                type : 'category',
+                                boundaryGap : false,
+                                data : ['周一','周二','周三','周四','周五','周六','周日']
+                            }
+                        ],
+                        yAxis : [
+                            {
+                                type : 'value',
+                                axisLabel : {
+                                    formatter: '{value}'
+                                }
+                            }
+                        ],
+                        series : [
+                            {
+                                name:'最好',
+                                type:'line',
+                                data:[11, 11, 15, 13, 12, 13, 10],
+                                markPoint : {
+                                    data : [
+                                        {type : 'max', name: '最大值'},
+                                        {type : 'min', name: '最小值'}
+                                    ]
+                                },
+                                markLine : {
+                                    data : [
+                                        {type : 'average', name: '平均值'}
+                                    ]
+                                }
+                            },
+                            {
+                                name:'最坏',
+                                type:'line',
+                                data:[1, -2, 2, 5, 3, 2, 0],
+                                markPoint : {
+                                    data : [
+                                        {name : '周最低', value : -2, xAxis: 1, yAxis: -1.5}
+                                    ]
+                                },
+                                markLine : {
+                                    data : [
+                                        {type : 'average', name : '平均值'}
+                                    ]
+                                }
+                            }
+                        ]
+                    };
+
+                    // 为echarts对象加载数据
+                    myChart.setOption(option2);
+                }
+        );
+    </script>
+
+
+    <div class="footer">
+        <div class="footercontent">
+            <ul>
+                <li><a href="#">第一列</a>
+                    <ul>
+                        <li><a href="">意见反馈</a></li>
+                        <li><a href="">意见反馈</a></li>
+                        <li><a href="">意见反馈</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">第二列</a>
+                    <ul>
+                        <li><a href="">联系我们</a></li>
+                        <li><a href="">联系我们</a></li>
+                        <li><a href="">联系我们</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">第三列</a>
+                    <ul>
+                        <li><a href="">关于我们</a></li>
+                        <li><a href="">关于我们</a></li>
+                        <li><a href="">关于我们</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div class="copyright">Copyright © 2016 All Rights Reserved By WeAna</div>
+    </div>
+
+</div>
 
 </body>
 </html>
