@@ -1,7 +1,7 @@
 .module{
     display: block;
 
-    height: 1000px;
+    height: 1350px;
     width: 100%;
     margin: 0 auto;
     background-color: #b3d4fd;
@@ -10,8 +10,8 @@
 
 .child-module{
     width: 49.6%;
-    height: 500px;
-    padding: 2px;
+    height: 596px;
+    padding: 1px;
     float: left;
     background-color: oldlace;
 }
@@ -34,4 +34,52 @@
     font-weight: bold;
     text-align: center;
     color: #ed40bf;
+}
+.search{
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+
+
+}
+
+@font-face {
+    font-family: iconfont;src: url(http://g.tbcdn.cn/tb/icon-font/1.1.5/iconfont.eto);
+}
+
+body {
+    font: 12px/1.5 tahoma, arial, sans-serif;
+}
+
+a {
+    text-decoration: none
+}
+.search-tips{
+    float: right;
+    padding: 3px;
+}
+.search-button{
+    float: right;
+}
+.btn-search{
+    background:url("http://gtms01.alicdn.com/tps/i1/T1qyj8Fc8aXXc4E9bI-400-300.png") ;
+    width: 100px;
+    height: 45px;
+    background-position: 0 -200px;
+    border: 0;
+    cursor: pointer;
+}
+.search-common-panel{
+    height: 39px;
+    background-color: #f50;
+    overflow: hidden;
+    padding: 3px 0 3px 50px;
+}
+.search-common-panel input{
+    height: 39px;
+    line-height: 39px;
+    width: 100%;
+    border: 0 none;
+    outline: 0;
+    background-color: #fff;
 }
